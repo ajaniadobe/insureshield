@@ -1,9 +1,9 @@
 {
   "mappings": [
-    "/:/"
+    "/content/insureshield/:/",
+    "/content/insureshield/configuration:/.helix/config.json"
   ],
   "includes": [
-    "/content/",
-    "/content/dam/"
+    "/content/insureshield/"
   ]
 }
