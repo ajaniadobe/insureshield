@@ -45,7 +45,7 @@
   {
     "id": "cards-story",
     "components": [
-      "card"
+      "story-card"
     ]
   },
   {

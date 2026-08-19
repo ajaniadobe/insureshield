@@ -26,7 +26,8 @@
               "name": "Tab",
               "model": "tab",
               "title": "Tab",
-              "content": "<p>Tab content</p>"
+              "image": "",
+              "text": "<p>Tab content</p>"
             }
           }
         }
@@ -45,8 +46,15 @@
           "label": "Tab Label"
         },
         {
+          "component": "reference",
+          "name": "image",
+          "label": "Image",
+          "valueType": "string",
+          "multi": false
+        },
+        {
           "component": "richtext",
-          "name": "content",
+          "name": "text",
           "value": "",
           "label": "Content",
           "valueType": "string"
