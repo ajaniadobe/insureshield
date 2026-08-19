@@ -268,3 +268,30 @@ main .section.dark {
   margin: 0;
   padding: 56px 0;
 }
+
+/* teal brand band — centered CTA sections (authorable via section-metadata) */
+main .section.teal {
+  --teal-band-bg: rgb(63 162 157);
+
+  background-color: var(--teal-band-bg);
+  color: #fff;
+  margin: 0;
+  padding: 64px 0;
+  text-align: center;
+}
+
+main .section.teal h1,
+main .section.teal h2,
+main .section.teal h3 {
+  color: #fff;
+}
+
+main .section.teal a.button:any-link {
+  background-color: #fff;
+  color: rgb(47 125 120);
+}
+
+main .section.teal a.button:hover,
+main .section.teal a.button:focus {
+  background-color: rgb(255 255 255 / 90%);
+}

@@ -21,9 +21,21 @@
     ]
   },
   {
+    "id": "accordion",
+    "components": [
+      "accordion-item"
+    ]
+  },
+  {
     "id": "cards-feature",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "cards-pricing",
+    "components": [
+      "pricing-card"
     ]
   },
   {
@@ -36,6 +48,21 @@
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "columns-checklist",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
     ]
   },
   {
@@ -96,6 +123,12 @@
       "tnc",
       "wizard",
       "range"
+    ]
+  },
+  {
+    "id": "tabs",
+    "components": [
+      "tab"
     ]
   }
 ]
