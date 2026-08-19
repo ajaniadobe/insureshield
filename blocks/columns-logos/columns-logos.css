@@ -2,6 +2,14 @@
 
 /* Values extracted from source computed styles (div.logos / .logos__asset). */
 
+/* Trusted-by caption sits above the logo strip as section default content.
+   Source renders it centered at 16px; match that. */
+.columns-logos-container .default-content-wrapper p {
+  margin: 0 0 24px;
+  font-size: 16px;
+  text-align: center;
+}
+
 .columns-logos > div {
   display: flex;
   flex-wrap: wrap;
