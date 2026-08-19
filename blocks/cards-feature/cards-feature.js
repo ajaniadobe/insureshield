@@ -41,6 +41,8 @@ export default function decorate(block) {
   });
 
   ul.querySelectorAll('picture > img').forEach((img) => {
+    // These feature cards are below the fold — lazy-load their icons.
+    img.loading = 'lazy';
     // Only run EDS image optimization for same-origin (DAM) images. Cross-origin
     // icons (e.g. hosted on the source site) must keep their absolute URL.
     let sameOrigin = false;

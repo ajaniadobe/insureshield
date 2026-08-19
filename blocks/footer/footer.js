@@ -53,6 +53,11 @@ export default async function decorate(block) {
       if (src && !/^(https?:)?\/\//.test(src) && !src.startsWith('/')) {
         img.setAttribute('src', `/content/${src}`);
       }
+      // footer is below the fold — lazy-load
+      img.loading = 'lazy';
+      // the adjacent text label already names the link, so the icon is
+      // decorative — empty alt avoids redundant announcements.
+      img.setAttribute('alt', '');
     });
     // mark the social column (its links contain images)
     if (col.querySelector('img')) col.classList.add('footer-social');
