@@ -2,9 +2,12 @@
    Design values extracted from source computed styles:
    div.storycard.storycard-personalization on insureshield.com/us/en/home.html */
 
-/* carousel viewport clips the horizontal track */
+/* carousel viewport clips the horizontal track. `clip` (not `hidden`) is
+   used so the off-screen track can never establish a scroll container that
+   leaks horizontal page scroll; max-width pins it to the section width. */
 .cards-story .cards-story-viewport {
-  overflow: hidden;
+  max-width: 100%;
+  overflow: clip;
 }
 
 .cards-story .cards-story-viewport > ul {

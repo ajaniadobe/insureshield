@@ -7,6 +7,11 @@ header .nav-wrapper {
   position: relative;
   z-index: 20;
   width: 100%;
+
+  /* guard: a slightly-too-wide nav (e.g. utility bar + full menu in the
+     900-1000px band) must never push horizontal page scroll. clip is
+     horizontal-only so downward dropdown/megamenu panels are unaffected. */
+  overflow-x: clip;
   background-color: var(--background-color);
   border-bottom: 1px solid #ededed;
   font-family: var(--body-font-family);
