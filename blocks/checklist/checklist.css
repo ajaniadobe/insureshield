@@ -1,41 +1,45 @@
-/* columns-checklist — image on one side, a heading + checklist of items with
+/* checklist — image on one side, a heading + checklist of items with
    teal check icons on the other. Used in the "Risk signals should drive what
    happens next" and "Turn data into better order decisions" sections.
-   The .swap variant (section-metadata / block modifier) reverses the order. */
+   Rendered as a block (block/v1/block): each cell is a `> div > div`. The
+   `.swap` variant (authored via the block's classes field) reverses the order
+   at desktop. */
 
-.columns-checklist > div {
+.checklist {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.columns-checklist img {
+.checklist img {
   width: 100%;
   border-radius: 8px;
 }
 
-.columns-checklist > div > div {
+/* text cell first in the DOM order fallback; image cell floated above on mobile */
+.checklist > div {
   order: 1;
 }
 
-.columns-checklist > div > .columns-checklist-img-col {
+.checklist > div:has(.checklist-img-col),
+.checklist > div > .checklist-img-col {
   order: 0;
 }
 
-.columns-checklist > div > .columns-checklist-img-col img {
+.checklist .checklist-img-col img {
   display: block;
 }
 
 /* heading */
-.columns-checklist h2,
-.columns-checklist h3 {
+.checklist h2,
+.checklist h3 {
   margin: 0 0 20px;
   font-size: 32px;
   line-height: 1.2;
 }
 
 /* checklist: each list item gets a teal check marker */
-.columns-checklist ul {
+.checklist ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -44,20 +48,20 @@
   gap: 20px;
 }
 
-.columns-checklist li {
+.checklist li {
   position: relative;
   padding-left: 40px;
   font-size: 16px;
   line-height: 1.5;
 }
 
-.columns-checklist li strong {
+.checklist li strong {
   display: block;
   margin-bottom: 4px;
   font-weight: 600;
 }
 
-.columns-checklist li::before {
+.checklist li::before {
   content: '';
   position: absolute;
   left: 0;
@@ -73,20 +77,21 @@
 }
 
 @media (width >= 900px) {
-  .columns-checklist > div {
+  .checklist {
     align-items: center;
     flex-direction: row;
     gap: 48px;
   }
 
-  .columns-checklist > div > div {
+  .checklist > div {
     flex: 1 1 0;
     min-width: 0;
     order: unset;
   }
 
   /* swap modifier reverses image/text order (mirrored section) */
-  .columns-checklist.swap > div > .columns-checklist-img-col {
+  .checklist.swap > div:has(.checklist-img-col),
+  .checklist.swap > div > .checklist-img-col {
     order: 1;
   }
 }

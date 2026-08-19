@@ -242,21 +242,28 @@
     ]
   },
   {
-    "id": "columns-checklist",
+    "id": "checklist",
     "fields": [
       {
         "component": "text",
-        "valueType": "number",
-        "name": "columns",
+        "valueType": "string",
+        "name": "classes",
         "value": "",
-        "label": "Columns"
+        "label": "Variant"
       },
       {
-        "component": "text",
-        "valueType": "number",
-        "name": "rows",
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "text",
         "value": "",
-        "label": "Rows"
+        "label": "Checklist",
+        "valueType": "string"
       }
     ]
   },
@@ -5034,6 +5041,13 @@
   {
     "id": "hero-commerce",
     "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "classes",
+        "label": "Variant",
+        "value": ""
+      },
       {
         "component": "reference",
         "valueType": "string",

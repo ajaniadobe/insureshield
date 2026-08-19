@@ -57,21 +57,6 @@
     ]
   },
   {
-    "id": "columns-checklist",
-    "components": [
-      "column"
-    ]
-  },
-  {
-    "id": "column",
-    "components": [
-      "text",
-      "image",
-      "button",
-      "title"
-    ]
-  },
-  {
     "id": "columns-logos",
     "components": [
       "column"
