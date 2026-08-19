@@ -7,13 +7,23 @@ export default async function decorate(block) {
   tablist.className = 'tabs-list';
   tablist.setAttribute('role', 'tablist');
 
-  // decorate tabs and tabpanels
-  const tabs = [...block.children].map((child) => child.firstElementChild);
-  tabs.forEach((tab, i) => {
-    const id = toClassName(tab.textContent);
+  // each row = one tab: first cell is the label; the remaining cells
+  // (image, text) form the panel body and are merged into a single wrapper.
+  const rows = [...block.children];
+  rows.forEach((tabpanel, i) => {
+    const cells = [...tabpanel.children];
+    const label = cells.shift();
+    const id = toClassName(label.textContent);
+
+    // merge the remaining cells (image + text) into the first panel cell
+    const body = cells[0];
+    cells.slice(1).forEach((cell) => {
+      while (cell.firstChild) body.append(cell.firstChild);
+      cell.remove();
+    });
+    label.remove();
 
     // decorate tabpanel
-    const tabpanel = block.children[i];
     tabpanel.className = 'tabs-panel';
     tabpanel.id = `tabpanel-${id}`;
     tabpanel.setAttribute('aria-hidden', !!i);
@@ -24,7 +34,7 @@ export default async function decorate(block) {
     const button = document.createElement('button');
     button.className = 'tabs-tab';
     button.id = `tab-${id}`;
-    button.innerHTML = tab.innerHTML;
+    button.innerHTML = label.innerHTML;
     button.setAttribute('aria-controls', `tabpanel-${id}`);
     button.setAttribute('aria-selected', !i);
     button.setAttribute('role', 'tab');
@@ -40,7 +50,6 @@ export default async function decorate(block) {
       button.setAttribute('aria-selected', true);
     });
     tablist.append(button);
-    tab.remove();
   });
 
   block.prepend(tablist);
