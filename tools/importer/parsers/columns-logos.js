@@ -20,10 +20,24 @@ export default function parse(element, { document }) {
     return;
   }
 
+  // The caption (.logos__text, e.g. "Backed by the Reliability and Scale of
+  // UPS® and Trusted by Major Brands:") sits above the logo strip. It lives
+  // inside this block's source element, so it must be emitted here as default
+  // content — otherwise it is lost when the element is replaced.
+  const captionEl = element.querySelector('.logos__text');
+  const captionText = captionEl ? captionEl.textContent.trim() : '';
+
   // Single row: one cell per logo (columns block — no field comments)
   const row = logos.map((pic) => pic);
   const cells = [row];
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'columns-logos', cells });
-  element.replaceWith(block);
+
+  if (captionText) {
+    const caption = document.createElement('p');
+    caption.textContent = captionText;
+    element.replaceWith(caption, block);
+  } else {
+    element.replaceWith(block);
+  }
 }

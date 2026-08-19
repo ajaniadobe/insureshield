@@ -73,10 +73,18 @@ var CustomImportScript = (() => {
       element.replaceWith(...element.childNodes);
       return;
     }
+    const captionEl = element.querySelector(".logos__text");
+    const captionText = captionEl ? captionEl.textContent.trim() : "";
     const row = logos.map((pic) => pic);
     const cells = [row];
     const block = WebImporter.Blocks.createBlock(document2, { name: "columns-logos", cells });
-    element.replaceWith(block);
+    if (captionText) {
+      const caption = document2.createElement("p");
+      caption.textContent = captionText;
+      element.replaceWith(caption, block);
+    } else {
+      element.replaceWith(block);
+    }
   }
 
   // tools/importer/parsers/cards-feature.js

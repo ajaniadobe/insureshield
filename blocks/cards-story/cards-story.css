@@ -2,29 +2,23 @@
    Design values extracted from source computed styles:
    div.storycard.storycard-personalization on insureshield.com/us/en/home.html */
 
-.cards-story > ul {
+/* carousel viewport clips the horizontal track */
+.cards-story .cards-story-viewport {
+  overflow: hidden;
+}
+
+.cards-story .cards-story-viewport > ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
   gap: 24px;
+  scroll-behavior: smooth;
 }
 
-@media (width >= 600px) {
-  .cards-story > ul {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (width >= 900px) {
-  .cards-story > ul {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-/* card */
-.cards-story > ul > li {
+/* card: one per view on mobile, two on tablet, three on desktop */
+.cards-story .cards-story-viewport > ul > li {
+  flex: 0 0 100%;
   display: flex;
   flex-direction: column;
   background-color: var(--background-color);
@@ -32,6 +26,82 @@
   box-shadow: rgb(0 0 0 / 5%) 0 4px 12px -3px;
   overflow: hidden;
   color: var(--text-color);
+}
+
+@media (width >= 600px) {
+  .cards-story .cards-story-viewport > ul > li {
+    flex-basis: calc((100% - 24px) / 2);
+  }
+}
+
+@media (width >= 900px) {
+  .cards-story .cards-story-viewport > ul > li {
+    flex-basis: calc((100% - 48px) / 3);
+  }
+}
+
+/* carousel controls: prev/next arrows + indicator dots */
+.cards-story .cards-story-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.cards-story .cards-story-arrow {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgb(0 0 0 / 20%);
+  border-radius: 50%;
+  background: none;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.cards-story .cards-story-arrow::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-top: 2px solid currentcolor;
+  border-right: 2px solid currentcolor;
+}
+
+.cards-story .cards-story-prev::before {
+  transform: translateX(2px) rotate(-135deg);
+}
+
+.cards-story .cards-story-next::before {
+  transform: translateX(-2px) rotate(45deg);
+}
+
+.cards-story .cards-story-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.cards-story .cards-story-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cards-story .cards-story-dot {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgb(0 0 0 / 25%);
+  cursor: pointer;
+}
+
+.cards-story .cards-story-dot[aria-selected="true"] {
+  background: rgb(63 162 157);
 }
 
 /* image (top) */
@@ -114,9 +184,9 @@ main .cards-story .cards-story-card-body a.button:any-link {
   border-radius: 0;
   padding: 0;
   background: none;
-  color: var(--link-color);
+  color: var(--text-color);
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 24px;
   text-decoration: none;
   white-space: normal;

@@ -6,10 +6,11 @@
   --link-color: rgb(47 103 172);
   --link-hover-color: rgb(35 78 130);
 
-  /* button colors — primary teal darkened to rgb(47 125 120) for AA contrast
-     (4.85:1 on white text; source rgb(63 162 157) was only 3.05:1) */
-  --button-primary-bg: rgb(47 125 120);
-  --button-primary-bg-hover: rgb(37 110 105);
+  /* button colors — matches source teal rgb(63 162 157).
+     NOTE: white-on-teal is 3.05:1 (below WCAG AA 4.5:1); reverted to source
+     value per design decision to match the original site exactly. */
+  --button-primary-bg: rgb(63 162 157);
+  --button-primary-bg-hover: rgb(52 138 133);
   --button-primary-text: rgb(255 255 255);
   --button-secondary-border: rgb(47 103 172);
   --button-secondary-text: rgb(47 103 172);
