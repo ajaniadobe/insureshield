@@ -115,6 +115,36 @@
           }
         },
         {
+          "title": "Cards Connect",
+          "id": "cards-connect",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Cards Connect",
+                  "filter": "cards-connect"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Connect Card",
+          "id": "connect-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Card",
+                  "model": "connect-card"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Cards Feature",
           "id": "cards-feature",
           "plugins": {
@@ -130,15 +160,15 @@
           }
         },
         {
-          "title": "Card",
-          "id": "card",
+          "title": "Feature Card",
+          "id": "feature-card",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
                   "name": "Card",
-                  "model": "card"
+                  "model": "feature-card"
                 }
               }
             }

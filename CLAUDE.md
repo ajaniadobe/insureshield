@@ -126,6 +126,7 @@ npm run update:core                   # Update afb-runtime.js from upstream
 npm run update:formatters             # Update afb-formatters.js from upstream
 npm run update:formula                # Update formula engine from upstream
 npm run create:custom-component       # Scaffold new custom component
+npm run build:jcr -- <path.md|dir>    # md2jcr → JCR XML, then escape bare & and validate well-formedness
 ```
 
 ## Common Agent Tasks

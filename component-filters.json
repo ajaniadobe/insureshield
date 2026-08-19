@@ -27,9 +27,15 @@
     ]
   },
   {
+    "id": "cards-connect",
+    "components": [
+      "connect-card"
+    ]
+  },
+  {
     "id": "cards-feature",
     "components": [
-      "card"
+      "feature-card"
     ]
   },
   {
