@@ -1,0 +1,68 @@
+/* Accordion — FAQ style: white cards with soft shadow, chevron toggle.
+   Matches the CommerceShield FAQ design. */
+
+.accordion .accordion-item {
+  margin: 0;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--background-color);
+  box-shadow: rgb(0 0 0 / 8%) 0 2px 12px -2px;
+  overflow: hidden;
+}
+
+.accordion .accordion-item + .accordion-item {
+  margin-top: 16px;
+}
+
+.accordion .accordion-item-label {
+  position: relative;
+  padding: 24px 56px 24px 24px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-color);
+  cursor: pointer;
+  list-style: none;
+  transition: background-color 0.2s;
+}
+
+.accordion .accordion-item-label::-webkit-details-marker {
+  display: none;
+}
+
+.accordion .accordion-item-label::after {
+  content: '';
+  position: absolute;
+  top: 28px;
+  right: 24px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--text-color);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  transition: transform 0.2s;
+}
+
+.accordion .accordion-item[open] .accordion-item-label::after {
+  transform: rotate(-135deg);
+}
+
+.accordion .accordion-item-body {
+  padding: 0 24px 24px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-color);
+}
+
+.accordion .accordion-item-body p {
+  margin: 0 0 12px;
+}
+
+.accordion .accordion-item-body ul,
+.accordion .accordion-item-body ol {
+  margin: 0 0 12px;
+  padding-left: 20px;
+}
+
+.accordion .accordion-item-body li {
+  margin-bottom: 6px;
+}

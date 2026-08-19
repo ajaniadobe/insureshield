@@ -1,0 +1,86 @@
+/* Tabs — centered text tabs with teal active underline; panel below holds
+   heading + text + image + CTA. Matches CommerceShield "Turn risk signals
+   into the right next action" section. */
+
+.tabs .tabs-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 40px;
+  max-width: 100%;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #e0e0e0;
+  overflow-x: auto;
+}
+
+.tabs .tabs-list button {
+  flex: 0 0 auto;
+  margin: 0;
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  padding: 12px 4px;
+  background: none;
+  color: rgb(95 95 95);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.25;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tabs .tabs-list button p {
+  margin: 0;
+}
+
+.tabs .tabs-list button:hover {
+  color: var(--text-color);
+}
+
+.tabs .tabs-list button[aria-selected='true'] {
+  color: var(--text-color);
+  border-bottom-color: rgb(63 162 157);
+  cursor: initial;
+}
+
+.tabs .tabs-panel {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.tabs .tabs-panel[aria-hidden='true'] {
+  display: none;
+}
+
+/* panel content: heading + intro centered, image below, CTA centered */
+.tabs .tabs-panel h2,
+.tabs .tabs-panel h3 {
+  margin: 0 0 12px;
+  text-align: center;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.tabs .tabs-panel > p {
+  margin: 0 auto 24px;
+  max-width: 720px;
+  text-align: center;
+}
+
+.tabs .tabs-panel picture {
+  display: block;
+}
+
+.tabs .tabs-panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.tabs .tabs-panel .button-container {
+  margin-top: 24px;
+  text-align: center;
+}
