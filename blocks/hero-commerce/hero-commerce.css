@@ -182,13 +182,17 @@
 
 @media (width >= 900px) {
   .hero-commerce.hero-split {
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     gap: 48px;
-    padding: 48px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 32px;
   }
 
   .hero-commerce.hero-split > div {
     flex: 1 1 0;
+    min-width: 0;
   }
 }
