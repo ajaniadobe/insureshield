@@ -21,7 +21,7 @@
       "id": "hero-commerce",
       "fields": [
         {
-          "component": "richtext",
+          "component": "reference",
           "valueType": "string",
           "name": "image",
           "label": "Image",
