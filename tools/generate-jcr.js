@@ -16,6 +16,11 @@
  *
  *   --ue-files defaults to the repo root (where component-*.json live).
  *
+ * When authoring the source markdown, build block grid tables with the helpers
+ * in tools/lib/gridtable.js — they compute column widths from content so tables
+ * are always uniform-width (md2jcr silently drops a block if any line overflows
+ * the border).
+ *
  * The generated `<base>.xml` is written next to each input `.md`, matching the
  * behaviour of the underlying md2jcr CLI.
  */
@@ -44,6 +49,29 @@ export function escapeBareAmpersands(xml) {
   const bare = /&(?!amp;|lt;|gt;|quot;|apos;|#x?[0-9a-fA-F]+;)/g;
   const count = (xml.match(bare) || []).length;
   return { xml: xml.replace(bare, '&amp;'), count };
+}
+
+/**
+ * Escape raw `<` / `>` that appear INSIDE double-quoted attribute values. These
+ * are always illegal there (AEM package creation rejects "Unescaped '<' not
+ * allowed in attributes values"), and md2jcr can emit them when a field holds
+ * HTML — e.g. a template-default like `text="<p>Tab content</p>"`. Only the
+ * attribute-value regions are touched, so real element tags are left intact.
+ * Idempotent: existing `&lt;`/`&gt;` are not re-escaped.
+ * @param {string} xml raw XML text
+ * @returns {{ xml: string, count: number }} normalized XML and number of fixes
+ */
+export function escapeAngleBracketsInAttributes(xml) {
+  let count = 0;
+  // match name="...": the value is everything up to the next unescaped quote.
+  const attr = /([\w:.-]+)="([^"]*)"/g;
+  const out = xml.replace(attr, (whole, name, value) => {
+    if (value.indexOf('<') === -1 && value.indexOf('>') === -1) return whole;
+    const fixed = value.replace(/</g, () => { count += 1; return '&lt;'; })
+      .replace(/>/g, () => { count += 1; return '&gt;'; });
+    return `${name}="${fixed}"`;
+  });
+  return { xml: out, count };
 }
 
 /**
@@ -80,16 +108,20 @@ export function assertWellFormed(xml, label) {
 }
 
 /**
- * Post-process a single generated .xml file: escape bare ampersands, validate.
+ * Post-process a single generated .xml file so it is valid for AEM package
+ * import: escape bare ampersands, then escape raw `<`/`>` inside attribute
+ * values, then validate well-formedness.
  * @param {string} xmlPath absolute path to the .xml file
- * @returns {number} number of ampersands fixed
+ * @returns {number} total number of characters escaped
  */
 export function normalizeXmlFile(xmlPath) {
   const raw = readFileSync(xmlPath, 'utf-8');
-  const { xml, count } = escapeBareAmpersands(raw);
-  if (count > 0) writeFileSync(xmlPath, xml);
-  assertWellFormed(xml, path.relative(repoRoot, xmlPath));
-  return count;
+  const amp = escapeBareAmpersands(raw);
+  const ang = escapeAngleBracketsInAttributes(amp.xml);
+  const total = amp.count + ang.count;
+  if (total > 0) writeFileSync(xmlPath, ang.xml);
+  assertWellFormed(ang.xml, path.relative(repoRoot, xmlPath));
+  return total;
 }
 
 /**
@@ -150,14 +182,14 @@ function run() {
   const total = collectXmlOutputs(inputPath).reduce((sum, xmlPath) => {
     try {
       const fixed = normalizeXmlFile(xmlPath);
-      console.log(`✅ ${path.relative(repoRoot, xmlPath)} — ${fixed} bare ampersand(s) escaped, well-formed`);
+      console.log(`✅ ${path.relative(repoRoot, xmlPath)} — ${fixed} char(s) escaped, well-formed`);
       return sum + fixed;
     } catch (err) {
       console.error(`❌ ${err.message}`);
       return process.exit(1);
     }
   }, 0);
-  console.log(`Done. ${total} ampersand(s) normalized across generated JCR.`);
+  console.log(`Done. ${total} char(s) escaped across generated JCR.`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
