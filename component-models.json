@@ -161,10 +161,22 @@
     ]
   },
   {
-    "id": "card",
+    "id": "connect-card",
     "fields": [
       {
         "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "feature-card",
+    "fields": [
+      {
+        "component": "reference",
         "valueType": "string",
         "name": "image",
         "label": "Image",
@@ -5023,7 +5035,7 @@
     "id": "hero-commerce",
     "fields": [
       {
-        "component": "richtext",
+        "component": "reference",
         "valueType": "string",
         "name": "image",
         "label": "Image",

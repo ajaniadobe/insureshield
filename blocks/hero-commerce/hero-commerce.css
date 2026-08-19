@@ -133,8 +133,13 @@
    hero-split variant — text-left + image-card-right on a light
    background (CommerceShield hero). Overrides the full-bleed
    layout: both rows become normal flow columns, no absolute image.
+   Content is authored image-first, text-second (to match the model
+   field order image→text); flex order keeps the text reading first
+   on mobile and on the left at desktop, with the image on the right.
    ============================================================ */
 .hero-commerce.hero-split {
+  display: flex;
+  flex-direction: column;
   min-height: 0;
   padding: 0 24px;
   background: none;
@@ -153,6 +158,14 @@
   padding: 0;
 }
 
+.hero-commerce.hero-split > div:first-child {
+  order: 1;
+}
+
+.hero-commerce.hero-split > div:last-child {
+  order: 0;
+}
+
 /* neutralize the base full-bleed `height: 100%` on the inner row divs so the
    split hero sizes to its content instead of stretching to the viewport */
 /* stylelint-disable-next-line no-descending-specificity */
@@ -160,8 +173,8 @@
   height: auto;
 }
 
-/* text panel: no card treatment, plain on the light section */
-.hero-commerce.hero-split > div:first-child > div {
+/* text panel (now the last cell): no card treatment, plain on the light section */
+.hero-commerce.hero-split > div:last-child > div {
   max-width: none;
   padding: 0;
   border-radius: 0;
@@ -197,6 +210,7 @@
   .hero-commerce.hero-split {
     box-sizing: border-box;
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 48px;
     max-width: 1200px;
@@ -207,6 +221,15 @@
   .hero-commerce.hero-split > div {
     flex: 1 1 0;
     min-width: 0;
+  }
+
+  /* desktop: text panel left, image right (DOM is image-first) */
+  .hero-commerce.hero-split > div:last-child {
+    order: 0;
+  }
+
+  .hero-commerce.hero-split > div:first-child {
+    order: 1;
   }
 
   /* desktop: CTAs return to inline auto-width, side by side */
