@@ -145,10 +145,18 @@
   position: static;
   inset: auto;
   z-index: auto;
+  height: auto;
   min-height: 0;
   max-width: none;
   margin: 0;
   padding: 0;
+}
+
+/* neutralize the base full-bleed `height: 100%` on the inner row divs so the
+   split hero sizes to its content instead of stretching to the viewport */
+/* stylelint-disable-next-line no-descending-specificity */
+.hero-commerce.hero-split > div > div {
+  height: auto;
 }
 
 /* text panel: no card treatment, plain on the light section */
