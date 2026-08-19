@@ -1,15 +1,15 @@
 {
   "definitions": [
     {
-      "title": "Hero Commerce",
-      "id": "hero-commerce",
+      "title": "Checklist",
+      "id": "checklist",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/block/v1/block",
             "template": {
-              "name": "Hero Commerce",
-              "model": "hero-commerce"
+              "name": "Checklist",
+              "model": "checklist"
             }
           }
         }
@@ -18,14 +18,14 @@
   ],
   "models": [
     {
-      "id": "hero-commerce",
+      "id": "checklist",
       "fields": [
         {
           "component": "text",
           "valueType": "string",
           "name": "classes",
-          "label": "Variant",
-          "value": ""
+          "value": "",
+          "label": "Variant"
         },
         {
           "component": "reference",
@@ -35,17 +35,10 @@
           "multi": false
         },
         {
-          "component": "text",
-          "valueType": "string",
-          "name": "imageAlt",
-          "label": "Alt",
-          "value": ""
-        },
-        {
           "component": "richtext",
           "name": "text",
           "value": "",
-          "label": "Text",
+          "label": "Checklist",
           "valueType": "string"
         }
       ]
