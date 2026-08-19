@@ -175,7 +175,7 @@ function buildDynamicMediaImages(main) {
 }
 
 // Register the DM dispatcher for createOptimizedPicture interop.
-window.__dmRender__ = (src, alt) => {
+window.dmRender = (src, alt) => {
   const family = detectDynamicMediaUrl(src);
   if (!family) return null;
   return family === 'scene7'
