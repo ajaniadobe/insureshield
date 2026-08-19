@@ -1,19 +1,26 @@
 import { getMetadata } from '../../scripts/aem.js';
 
 /**
- * Fetch the footer fragment HTML. Tries the local content path first
- * (localhost / `aem up`), then falls back to the block-metadata path
- * (DA / EDS production).
+ * Fetch the footer fragment HTML. The footer lives under `/content/` when
+ * running locally (`aem up` mirrors the AEM author tree) but at the site root
+ * on EDS production (`/footer`). Try the environment's expected path first so
+ * production page loads don't fire a guaranteed 404; fall back to the other.
  * @returns {Promise<Document|null>} parsed footer document, or null on failure
  */
 async function fetchFooter() {
-  let resp = await fetch('/content/footer.plain.html');
-  if (!resp.ok) {
-    const footerMeta = getMetadata('footer');
-    const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
-    resp = await fetch(`${footerPath}.plain.html`);
+  const footerMeta = getMetadata('footer');
+  const prodPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
+  const localPath = '/content/footer';
+  const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const order = isLocal ? [localPath, prodPath] : [prodPath, localPath];
+
+  let resp;
+  for (let i = 0; i < order.length; i += 1) {
+    // eslint-disable-next-line no-await-in-loop
+    resp = await fetch(`${order[i]}.plain.html`);
+    if (resp.ok) break;
   }
-  if (!resp.ok) return null;
+  if (!resp || !resp.ok) return null;
   const html = await resp.text();
   return new DOMParser().parseFromString(html, 'text/html');
 }
