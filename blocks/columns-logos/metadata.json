@@ -1,0 +1,38 @@
+{
+  "variantName": "columns-logos",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-08-19T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.insureshield.com/us/en/home.html",
+    "originPage": "InsureShield homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "logo-strip",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "row of brand logo images side-by-side",
+    "buttonCount": 0,
+    "imageCount": 6
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "trusted-by / partner logo strips",
+      "side-by-side image rows without per-item text",
+      "brand credibility bars"
+    ],
+    "notSuitableFor": [
+      "items requiring per-item title/description/CTA (use cards)",
+      "text-heavy comparison columns"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/us/en/home"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-19T00:00:00.000Z"
+  }
+}

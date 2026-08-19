@@ -1,0 +1,15 @@
+{
+  "type": "xwalk",
+  "sites": {
+    "insureshield": {
+      "previewOrg": "ajaniadobe",
+      "previewSite": "insureshield",
+      "contentHostUrl": "author-p142404-e1461571.adobeaemcloud.com",
+      "aemSitePath": "/content/insureshield",
+      "aemAssetsFolderPath": "/content/dam/insureshield",
+      "aemSiteName": "insureshield",
+      "aemSiteTitle": "Insureshield",
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

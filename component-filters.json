@@ -21,9 +21,36 @@
     ]
   },
   {
+    "id": "cards-feature",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "cards-story",
+    "components": [
+      "card"
+    ]
+  },
+  {
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "columns-logos",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
     ]
   },
   {
