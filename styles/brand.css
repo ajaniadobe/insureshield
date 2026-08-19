@@ -1,0 +1,22 @@
+:root {
+  --heading-font-family: "Roboto", sans-serif;
+  --body-font-family: "Roboto", sans-serif;
+  --background-color: rgb(255 255 255);
+  --text-color: rgb(18 18 18);
+  --link-color: rgb(47 103 172);
+  --link-hover-color: rgb(35 78 130);
+
+  /* button colors */
+  --button-primary-bg: rgb(63 162 157);
+  --button-primary-bg-hover: rgb(52 138 133);
+  --button-primary-text: rgb(255 255 255);
+  --button-secondary-border: rgb(47 103 172);
+  --button-secondary-text: rgb(47 103 172);
+  --nav-height: 64px;
+  --heading-size-xxl: 48px;
+  --heading-size-xl: 40px;
+  --heading-size-l: 32px;
+  --heading-size-m: 24px;
+  --heading-size-s: 20px;
+  --heading-size-xs: 18px;
+}
