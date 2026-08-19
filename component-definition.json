@@ -191,15 +191,15 @@
           }
         },
         {
-          "title": "Card",
-          "id": "card",
+          "title": "Story Card",
+          "id": "story-card",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
                   "name": "Card",
-                  "model": "card"
+                  "model": "story-card"
                 }
               }
             }
@@ -855,7 +855,8 @@
                   "name": "Tab",
                   "model": "tab",
                   "title": "Tab",
-                  "content": "<p>Tab content</p>"
+                  "image": "",
+                  "text": "<p>Tab content</p>"
                 }
               }
             }

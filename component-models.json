@@ -192,10 +192,10 @@
     ]
   },
   {
-    "id": "card",
+    "id": "story-card",
     "fields": [
       {
-        "component": "richtext",
+        "component": "reference",
         "valueType": "string",
         "name": "image",
         "label": "Image",
@@ -5082,8 +5082,15 @@
         "label": "Tab Label"
       },
       {
+        "component": "reference",
+        "name": "image",
+        "label": "Image",
+        "valueType": "string",
+        "multi": false
+      },
+      {
         "component": "richtext",
-        "name": "content",
+        "name": "text",
         "value": "",
         "label": "Content",
         "valueType": "string"
