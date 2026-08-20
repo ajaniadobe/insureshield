@@ -295,3 +295,43 @@ main .section.teal a.button:hover,
 main .section.teal a.button:focus {
   background-color: rgb(255 255 255 / 90%);
 }
+
+/* centered section intros (eyebrow + heading + subhead), matching the source
+   CommerceShield layout. Authorable via section-metadata style "center".
+   Only the section's own default-content is centered; block content inside
+   (cards, tabs, pricing) keeps its own alignment. */
+main .section.center > .default-content-wrapper {
+  text-align: center;
+}
+
+/* keep centered intro *text* paragraphs from stretching full width, but let
+   media (infographics) span the full content width */
+main .section.center > .default-content-wrapper > p:not(:has(picture, img)) {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* eyebrow — the first short paragraph above the heading */
+main .section.center > .default-content-wrapper > p:first-child {
+  margin: 0 0 8px;
+  font-size: var(--body-font-size-xs);
+  font-weight: 400;
+  color: var(--text-color);
+}
+
+/* teal divider rule under the section heading */
+main .section.center > .default-content-wrapper > h2,
+main .section.center > .default-content-wrapper > h3 {
+  margin-bottom: 16px;
+}
+
+main .section.center > .default-content-wrapper > h2::after,
+main .section.center > .default-content-wrapper > h3::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 2px;
+  margin: 16px auto 0;
+  background-color: rgb(63 162 157);
+}
