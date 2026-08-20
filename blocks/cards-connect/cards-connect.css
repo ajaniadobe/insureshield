@@ -1,5 +1,5 @@
-/* cards-connect — text-only feature cards (CommerceShield "Simple Ways to Get
-   Connected"). Same card treatment as cards-feature but with no icon column. */
+/* cards-connect — feature cards with a platform icon + text (CommerceShield
+   "Simple Ways to Get Connected"). Same card treatment as cards-feature. */
 
 .cards-connect > ul {
     list-style: none;
@@ -18,6 +18,24 @@
     border-radius: 4px;
     padding: 32px;
     box-shadow: rgb(0 0 0 / 20%) 0 0 8px 0;
+}
+
+/* Icon */
+.cards-connect .cards-connect-card-icon {
+    line-height: 0;
+    margin: 0 0 24px;
+}
+
+.cards-connect .cards-connect-card-icon picture,
+.cards-connect .cards-connect-card-icon p {
+    margin: 0;
+    line-height: 0;
+}
+
+.cards-connect .cards-connect-card-icon img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
 }
 
 /* Card body */
