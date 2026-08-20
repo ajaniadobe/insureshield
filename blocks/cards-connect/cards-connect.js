@@ -8,7 +8,11 @@ export default function decorate(block) {
     while (row.firstElementChild) li.append(row.firstElementChild);
 
     [...li.children].forEach((div) => {
-      div.className = 'cards-connect-card-body';
+      if (div.children.length === 1 && div.querySelector('picture')) {
+        div.className = 'cards-connect-card-icon';
+      } else {
+        div.className = 'cards-connect-card-body';
+      }
     });
 
     const body = li.querySelector('.cards-connect-card-body');
