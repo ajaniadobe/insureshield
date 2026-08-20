@@ -8,18 +8,18 @@ export default async function decorate(block) {
   tablist.setAttribute('role', 'tablist');
 
   // each row = one tab: first cell is the label; the remaining cells
-  // (image, text) form the panel body and are merged into a single wrapper.
+  // (image, text) stay as separate panel columns so the CSS can lay them out
+  // side-by-side (image right, text left) matching the source.
   const rows = [...block.children];
   rows.forEach((tabpanel, i) => {
     const cells = [...tabpanel.children];
     const label = cells.shift();
     const id = toClassName(label.textContent);
 
-    // merge the remaining cells (image + text) into the first panel cell
-    const body = cells[0];
-    cells.slice(1).forEach((cell) => {
-      while (cell.firstChild) body.append(cell.firstChild);
-      cell.remove();
+    // tag the image column vs the text column for layout
+    cells.forEach((cell) => {
+      if (cell.querySelector('picture')) cell.className = 'tabs-panel-image';
+      else cell.className = 'tabs-panel-text';
     });
     label.remove();
 
