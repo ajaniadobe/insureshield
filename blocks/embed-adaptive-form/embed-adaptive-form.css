@@ -1,1 +1,35 @@
-/** css goes here */
+/* embed-adaptive-form block
+ *
+ * Source (insureshield.com home): the form sits in a grey/tinted section,
+ * below a centered heading + intro paragraph. The grey background and
+ * vertical padding come from the section's `grey` style; this file handles
+ * the centering and width of the heading/intro and the form itself.
+ *
+ * Note: the Adobe Adaptive Form is loaded from a fragment at runtime. When
+ * that fragment is unavailable (e.g. local preview) the block renders its
+ * fallback link, so these rules only cover spacing / width / centering and
+ * must not interfere with the embedded form's own layout.
+ */
+
+/* Center the section heading + intro paragraph to match the source */
+.section.embed-adaptive-form-container > .default-content-wrapper {
+    text-align: center;
+}
+
+/* Center the form (and its fallback link) within the section */
+.embed-adaptive-form {
+    display: flex;
+    justify-content: center;
+}
+
+.embed-adaptive-form > div {
+    width: 100%;
+    text-align: center;
+}
+
+/* Neutralise EDS button auto-decoration on the fallback form link so it
+ * reads as a plain, centered link rather than a full-width pill button */
+.embed-adaptive-form .button-container {
+    text-align: center;
+    margin: 0;
+}

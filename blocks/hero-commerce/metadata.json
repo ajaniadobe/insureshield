@@ -1,0 +1,38 @@
+{
+  "variantName": "hero-commerce",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-08-19T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.insureshield.com/us/en/home.html",
+    "originPage": "InsureShield homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "background image + heading + description + 2 CTAs",
+    "buttonCount": 2,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "marketing landing pages",
+      "product/solution homepages",
+      "top-of-page banners with a photographic background"
+    ],
+    "notSuitableFor": [
+      "text-only intros without a background image",
+      "mid-page content sections"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/us/en/home"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-19T00:00:00.000Z"
+  }
+}

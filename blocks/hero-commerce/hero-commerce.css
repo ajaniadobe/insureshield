@@ -1,0 +1,130 @@
+/* Block: hero-commerce
+ * Full-bleed Scene7 background image with a white content panel floating on the left.
+ * Values extracted from source computed styles (insureshield.com homepage hero).
+ */
+
+/* full-width: escape the EDS section max-width */
+.hero-commerce-container .hero-commerce-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-commerce-container {
+  margin: 0;
+}
+
+.hero-commerce {
+  position: relative;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+/* --- Row 1: background image container (full-bleed); Row 2: content container --- */
+.hero-commerce > div:first-child {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  margin: 0;
+}
+
+/* --- Row 2: constrained container that holds the white content panel --- */
+.hero-commerce > div:last-child {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 16px;
+}
+
+.hero-commerce > div:first-child > div {
+  height: 100%;
+  margin: 0;
+}
+
+/* the white panel */
+.hero-commerce > div:last-child > div {
+  box-sizing: border-box;
+  max-width: 488px;
+  padding: 32px 24px;
+  border-radius: 4px;
+  background-color: var(--background-color);
+  box-shadow:
+    rgb(0 0 0 / 14%) 0 2px 5px 0,
+    rgb(0 0 0 / 5%) 0 4px 12px -3px;
+}
+
+.hero-commerce picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-commerce img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Typography inside the panel --- */
+.hero-commerce h1 {
+  margin: 0 0 20px;
+  font-weight: 400;
+  font-size: var(--heading-font-size-xl);
+  line-height: 1.17;
+  color: var(--text-color);
+}
+
+.hero-commerce p {
+  margin: 0;
+  font-size: var(--body-font-size-m);
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+/* --- CTAs --- */
+.hero-commerce .button-container {
+  display: inline-block;
+  margin: 20px 12px 0 0;
+}
+
+.hero-commerce .button-container:last-of-type {
+  margin-right: 0;
+}
+
+/* first CTA keeps the global primary (teal) button styling.
+   second CTA is the secondary outlined-blue button. */
+.hero-commerce .button-container:last-of-type a.button:any-link {
+  border: 2px solid var(--button-secondary-border);
+  padding: 8px 22px;
+  background-color: transparent;
+  color: var(--button-secondary-text);
+}
+
+.hero-commerce .button-container:last-of-type a.button:hover,
+.hero-commerce .button-container:last-of-type a.button:focus {
+  background-color: var(--button-secondary-border);
+  color: #fff;
+}
+
+/* --- Desktop --- */
+@media (width >= 900px) {
+  .hero-commerce {
+    min-height: 520px;
+  }
+
+  .hero-commerce > div:last-child {
+    display: flex;
+    align-items: center;
+    min-height: 520px;
+    padding: 48px 32px;
+  }
+
+  .hero-commerce > div:last-child > div {
+    padding: 48px;
+  }
+
+  .hero-commerce h1 {
+    font-size: var(--heading-font-size-xxl);
+  }
+}

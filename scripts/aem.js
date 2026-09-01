@@ -373,11 +373,21 @@ function createOptimizedPicture(
   breakpoints = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }],
 ) {
 <<<<<<< HEAD
+<<<<<<< HEAD
   const url = !src.startsWith('http') ? new URL(src, window.location.href) : new URL(src);
   const picture = document.createElement('picture');
   const { origin, pathname } = url;
   const ext = pathname.split('.').pop();
 =======
+=======
+  // --- BEGIN DM dispatch (excat-generated) ---
+  if (typeof window.__dmRender__ === 'function') {
+    const dmPicture = window.__dmRender__(src, alt);
+    if (dmPicture) return dmPicture;
+  }
+  // --- END DM dispatch (excat-generated) ---
+
+>>>>>>> acb1d85 (Add 5 blocks, update importer)
   const url = new URL(src, window.location.href);
   const picture = document.createElement('picture');
   const { pathname } = url;

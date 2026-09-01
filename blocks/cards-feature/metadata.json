@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-feature",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-08-19T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.insureshield.com/us/en/home.html",
+    "originPage": "InsureShield homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "icon + title + description + list + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "icon-led feature/solution grids",
+      "option-selection cards with CTAs",
+      "product capability highlights"
+    ],
+    "notSuitableFor": [
+      "image-on-top article/story cards (use cards-story)",
+      "plain text lists without repeating structure"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/us/en/home"],
+    "reuseCount": 2,
+    "lastUsed": "2026-08-19T00:00:00.000Z"
+  }
+}
