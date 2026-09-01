@@ -22,8 +22,12 @@
     "build:json:definitions": "merge-json-cli -i \"models/_component-definition.json\" -o \"component-definition.json\"",
     "build:json:filters": "merge-json-cli -i \"models/_component-filters.json\" -o \"component-filters.json\"",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "prepare": "husky"
 =======
+=======
+    "build:jcr": "node tools/generate-jcr.js",
+>>>>>>> 2f2b181 (Add cards-connect, cards-feature blocks)
     "prepare": "husky",
     "test:unit": "npm run build:json --silent && mocha",
     "test:e2e": "playwright test",

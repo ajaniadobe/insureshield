@@ -1,0 +1,76 @@
+/* cards-connect — text-only feature cards (CommerceShield "Simple Ways to Get
+   Connected"). Same card treatment as cards-feature but with no icon column. */
+
+.cards-connect > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+/* Card */
+.cards-connect > ul > li {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+    border-radius: 4px;
+    padding: 32px;
+    box-shadow: rgb(0 0 0 / 20%) 0 0 8px 0;
+}
+
+/* Card body */
+.cards-connect .cards-connect-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+/* Title */
+.cards-connect .cards-connect-title {
+    font-family: var(--heading-font-family);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 26px;
+    color: var(--text-color);
+    margin: 0 0 16px;
+}
+
+/* Description */
+.cards-connect .cards-connect-card-body p:not(.cards-connect-title, .button-container) {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    color: var(--link-color-muted, rgb(95 87 83));
+    margin: 0 0 24px;
+}
+
+/* CTA buttons */
+.cards-connect .cards-connect-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 8px;
+}
+
+.cards-connect .cards-connect-actions .button-container {
+    margin: 0;
+}
+
+.cards-connect .cards-connect-actions a.button:any-link {
+    margin: 0;
+}
+
+@media (width >= 900px) {
+    .cards-connect > ul {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+
+    .cards-connect > ul > li {
+        padding: 40px;
+    }
+}
