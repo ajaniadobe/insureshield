@@ -31,4 +31,9 @@ create-custom-component.zip
 packages/aem-forms-block/dist/
 packages/aem-forms-block/node_modules/
 packages/aem-forms-block/*.tgz
+<<<<<<< HEAD
 >>>>>>> 42e03a7 (Initial commit)
+=======
+migration-work/navigation-validation/
+migration-work/footer-validation/
+>>>>>>> cead38a (Add footer, header blocks)
