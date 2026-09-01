@@ -128,3 +128,59 @@
     font-size: var(--heading-font-size-xxl);
   }
 }
+
+/* ============================================================
+   hero-split variant — text-left + image-card-right on a light
+   background (CommerceShield hero). Overrides the full-bleed
+   layout: both rows become normal flow columns, no absolute image.
+   ============================================================ */
+.hero-commerce.hero-split {
+  min-height: 0;
+  background: none;
+  overflow: visible;
+}
+
+.hero-commerce.hero-split > div:first-child,
+.hero-commerce.hero-split > div:last-child {
+  position: static;
+  inset: auto;
+  z-index: auto;
+  min-height: 0;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* text panel: no card treatment, plain on the light section */
+.hero-commerce.hero-split > div:first-child > div {
+  max-width: none;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.hero-commerce.hero-split .cards-story-card-image,
+.hero-commerce.hero-split picture {
+  height: auto;
+}
+
+.hero-commerce.hero-split img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+@media (width >= 900px) {
+  .hero-commerce.hero-split {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    padding: 48px 0;
+  }
+
+  .hero-commerce.hero-split > div {
+    flex: 1 1 0;
+  }
+}

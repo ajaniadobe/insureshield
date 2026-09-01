@@ -25,9 +25,21 @@
     ]
   },
   {
+    "id": "accordion",
+    "components": [
+      "accordion-item"
+    ]
+  },
+  {
     "id": "cards-feature",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "cards-pricing",
+    "components": [
+      "pricing-card"
     ]
   },
   {
@@ -40,6 +52,21 @@
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "columns-checklist",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
     ]
   },
   {
@@ -103,6 +130,15 @@
       "wizard",
       "range"
     ]
+<<<<<<< HEAD
 >>>>>>> 42e03a7 (Initial commit)
+=======
+  },
+  {
+    "id": "tabs",
+    "components": [
+      "tab"
+    ]
+>>>>>>> aa20583 (Add 5 blocks)
   }
 ]

@@ -1,0 +1,27 @@
+{
+  "pageName": "commerceshield",
+  "path": "/us/en/commerceshield",
+  "fileKey": "36omWBaKN4fwDBQhelG7dP",
+  "pageNodeId": "4015:3790",
+  "frameSize": { "width": 1640, "height": 10204 },
+  "source": "screenshots (Figma API rate-limited 429)",
+  "copyAuthority": "figma-design",
+  "totalSections": 12,
+  "blocks": [
+    { "order": 1, "section": "Hero", "suggestedBlockType": "hero", "variant": "hero-commerce", "reuse": true, "note": "text-left + teal 'Grow with Confidence' image-right, 2 CTAs. New variant hero-split may be needed (homepage hero is full-bleed photo; this is card-image on light bg)." },
+    { "order": 2, "section": "Most tools stop before the cost shows up", "suggestedBlockType": "default-content + image", "reuse": true, "note": "centered heading + subtext + full-width risk-gap infographic image" },
+    { "order": 3, "section": "Risk signals should drive what happens next", "suggestedBlockType": "columns", "variant": "columns-checklist", "reuse": true, "note": "image-left + icon checklist-right (4 items). New variant." },
+    { "order": 4, "section": "Turn risk signals into the right next action", "suggestedBlockType": "tabs", "variant": "tabs", "reuse": false, "note": "NEW block from Block Collection — 5 tabs, each with heading + text + image + CTA" },
+    { "order": 5, "section": "A risk control layer for the full buy-to-deliver journey", "suggestedBlockType": "default-content + image", "reuse": true, "note": "centered heading + subtext + 5-step ORDER/KNOW/DECIDE/CONTROL/RECOVER infographic" },
+    { "order": 6, "section": "Turn data into better order decisions", "suggestedBlockType": "columns", "variant": "columns-checklist", "reuse": true, "note": "checklist-left + image-right (mirrored section 3), 3 items" },
+    { "order": 7, "section": "Simple Ways To Get Connected", "suggestedBlockType": "cards", "variant": "cards-feature", "reuse": true, "note": "3 cards (Shopify App / Webhook / API): icon + title + desc + CTA. Reuse cards-feature." },
+    { "order": 8, "section": "No seats. No minimums.", "suggestedBlockType": "cards", "variant": "cards-pricing", "reuse": false, "note": "NEW variant — 3 pricing tiers (Base Layer $0.30 / Chargeback Guarantee 0.6% / Dispute Documentation) each with header band + price + feature list" },
+    { "order": 9, "section": "Speak with a risk expert", "suggestedBlockType": "form", "variant": "embed-adaptive-form", "reuse": true, "note": "AMBIGUOUS — lead-capture form. See ambiguous cases." },
+    { "order": 10, "section": "Insights & Resources", "suggestedBlockType": "cards", "variant": "cards-story", "reuse": true, "note": "featured story card (image-left + text-right) with carousel dots. Reuse cards-story carousel." },
+    { "order": 11, "section": "Frequently Asked Questions", "suggestedBlockType": "accordion", "variant": "accordion", "reuse": false, "note": "NEW block from Block Collection — 10 Q&A items" },
+    { "order": 12, "section": "Turn risk signals into next actions (CTA band)", "suggestedBlockType": "default-content", "reuse": true, "note": "teal full-width band, heading + subtext. Section-metadata style variant." }
+  ],
+  "reuseExisting": ["hero-commerce", "columns", "cards-feature", "cards-story", "embed-adaptive-form", "header", "footer"],
+  "newVariants": ["columns-checklist", "cards-pricing"],
+  "newBlocks": ["tabs", "accordion"]
+}

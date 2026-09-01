@@ -1,0 +1,91 @@
+/* columns-checklist — image on one side, a heading + checklist of items with
+   teal check icons on the other. Used in the "Risk signals should drive what
+   happens next" and "Turn data into better order decisions" sections.
+   The .swap variant (section-metadata / block modifier) reverses the order. */
+
+.columns-checklist > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.columns-checklist img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.columns-checklist > div > div {
+  order: 1;
+}
+
+.columns-checklist > div > .columns-checklist-img-col {
+  order: 0;
+}
+
+.columns-checklist > div > .columns-checklist-img-col img {
+  display: block;
+}
+
+/* heading */
+.columns-checklist h2,
+.columns-checklist h3 {
+  margin: 0 0 20px;
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+/* checklist: each list item gets a teal check marker */
+.columns-checklist ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.columns-checklist li {
+  position: relative;
+  padding-left: 40px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.columns-checklist li strong {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.columns-checklist li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgb(63 162 157);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M6 12.5l4 4 8-9"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+}
+
+@media (width >= 900px) {
+  .columns-checklist > div {
+    align-items: center;
+    flex-direction: row;
+    gap: 48px;
+  }
+
+  .columns-checklist > div > div {
+    flex: 1;
+    order: unset;
+  }
+
+  /* swap modifier reverses image/text order (mirrored section) */
+  .columns-checklist.swap > div > .columns-checklist-img-col {
+    order: 1;
+  }
+}
