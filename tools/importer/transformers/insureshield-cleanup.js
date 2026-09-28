@@ -17,9 +17,15 @@ export default function transform(hookName, element, payload) {
     // block matching. Verified in cleaned.html:
     //   #__tealiumImplicitmodal  -> "This website uses cookies" consent modal (line ~1180)
     //   .popover-ups             -> "Show Popover" toaster contact widget (line ~897)
+    //   #onetrust-consent-sdk    -> OneTrust cookie banner + preference center
+    //                               (injected at runtime; seen in the 2026-09 re-import)
     WebImporter.DOMUtils.remove(element, [
       '#__tealiumImplicitmodal',
       '.popover-ups',
+      '#onetrust-consent-sdk',
+      '#onetrust-banner-sdk',
+      '#onetrust-pc-sdk',
+      '.onetrust-pc-dark-filter',
     ]);
   }
 
@@ -50,7 +56,15 @@ export default function transform(hookName, element, payload) {
       '#runModeConfig',
       '#currentPageUrl',
       '#alert-json-data',
+      'img[src*="bat.bing.com"]',
     ]);
+
+    // DA project: drop the xwalk field-hint comments (<!-- field:x -->) the
+    // block parsers emit; DA documents have no field model.
+    const walker = element.ownerDocument.createTreeWalker(element, 128 /* SHOW_COMMENT */);
+    const comments = [];
+    while (walker.nextNode()) comments.push(walker.currentNode);
+    comments.forEach((c) => c.remove());
 
     // Safe leftover / non-authorable elements. Block parsers run before
     // this hook, so any iframe/link the parsers needed has already been

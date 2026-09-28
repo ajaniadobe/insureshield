@@ -25,7 +25,11 @@ async function fetchNav() {
   }
   if (!resp || !resp.ok) return null;
   const html = await resp.text();
-  return new DOMParser().parseFromString(html, 'text/html');
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  // remember where the fragment came from so relative image URLs
+  // (e.g. DA's `./media_…` renditions) can be resolved against it
+  doc.fragmentUrl = new URL(resp.url, window.location);
+  return doc;
 }
 
 /**
@@ -152,12 +156,12 @@ export default async function decorate(block) {
   brand.className = 'nav-brand';
   if (brandSrc) while (brandSrc.firstElementChild) brand.append(brandSrc.firstElementChild);
 
-  // nav.plain.html uses relative image paths (e.g. images/logo.svg) that resolve
-  // against the nav fragment location, not the current page — rewrite to absolute.
+  // the nav fragment uses relative image paths (e.g. DA's ./media_… renditions)
+  // that resolve against the fragment location, not the current page.
   brand.querySelectorAll('img[src]').forEach((img) => {
     const src = img.getAttribute('src');
     if (src && !/^(https?:)?\/\//.test(src) && !src.startsWith('/')) {
-      img.setAttribute('src', `/content/${src}`);
+      img.setAttribute('src', new URL(src, fragment.fragmentUrl).href);
     }
   });
 

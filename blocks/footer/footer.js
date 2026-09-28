@@ -22,7 +22,11 @@ async function fetchFooter() {
   }
   if (!resp || !resp.ok) return null;
   const html = await resp.text();
-  return new DOMParser().parseFromString(html, 'text/html');
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  // remember where the fragment came from so relative image URLs
+  // (e.g. DA's `./media_…` renditions) can be resolved against it
+  doc.fragmentUrl = new URL(resp.url, window.location);
+  return doc;
 }
 
 /**
@@ -54,11 +58,12 @@ export default async function decorate(block) {
       a.target = '_blank';
       a.rel = 'noopener';
     });
-    // resolve relative fragment image paths (images/x.svg) to absolute
+    // resolve relative fragment image paths (e.g. DA's ./media_… renditions)
+    // against the fragment location, not the current page
     col.querySelectorAll('img[src]').forEach((img) => {
       const src = img.getAttribute('src');
       if (src && !/^(https?:)?\/\//.test(src) && !src.startsWith('/')) {
-        img.setAttribute('src', `/content/${src}`);
+        img.setAttribute('src', new URL(src, fragment.fragmentUrl).href);
       }
       // footer is below the fold — lazy-load
       img.loading = 'lazy';
