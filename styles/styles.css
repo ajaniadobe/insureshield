@@ -314,24 +314,100 @@ main .section.center > .default-content-wrapper > p:not(:has(picture, img)) {
 
 /* eyebrow — the first short paragraph above the heading */
 main .section.center > .default-content-wrapper > p:first-child {
-  margin: 0 0 8px;
+  margin: 0 auto 8px;
   font-size: var(--body-font-size-xs);
   font-weight: 400;
   color: var(--text-color);
 }
 
-/* teal divider rule under the section heading */
+/* section heading: Roboto regular 40/48 (Figma "Header Text") */
+main .section.center > .default-content-wrapper > h2 {
+  margin-top: 0;
+  font-size: var(--heading-font-size-l);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+@media (width >= 900px) {
+  main .section.center > .default-content-wrapper > h2 {
+    font-size: var(--heading-font-size-xl);
+  }
+}
+
+/* teal divider rule under the section heading (Figma "Progress Bar" 72x4) */
 main .section.center > .default-content-wrapper > h2,
 main .section.center > .default-content-wrapper > h3 {
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 main .section.center > .default-content-wrapper > h2::after,
 main .section.center > .default-content-wrapper > h3::after {
   content: "";
   display: block;
-  width: 48px;
-  height: 2px;
+  width: 72px;
+  height: 4px;
   margin: 16px auto 0;
   background-color: rgb(63 162 157);
+}
+
+/* intro subhead directly under the heading */
+main .section.center > .default-content-wrapper > h2 + p {
+  margin-top: 0;
+  font-size: var(--body-font-size-m);
+  line-height: 1.4;
+}
+
+/* space between a centered intro and the block (or media) that follows */
+main .section.center > .default-content-wrapper:has(+ div) {
+  margin-bottom: 40px;
+}
+
+main .section.center > .default-content-wrapper > p:has(picture, img) {
+  margin-top: 40px;
+}
+
+main .section.center > .default-content-wrapper > p:has(picture, img) img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* trailing default content after a block (e.g. "Have questions?" + CTA) */
+main .section.center > div + .default-content-wrapper {
+  margin-top: 40px;
+}
+
+main .section.center > div + .default-content-wrapper > p:first-child {
+  margin: 0 auto;
+  font-size: var(--heading-font-size-m);
+}
+
+/* ...its CTA keeps the primary pill button look */
+main .section.center > div + .default-content-wrapper a.button:any-link {
+  margin-top: 16px;
+  border-radius: 100px;
+  padding: 10px 24px;
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+main .section.center > div + .default-content-wrapper a.button:hover,
+main .section.center > div + .default-content-wrapper a.button:focus {
+  background-color: var(--button-primary-bg-hover);
+}
+
+/* legal disclaimer at the foot of the page */
+main .section.disclaimer {
+  margin: 16px 0 40px;
+}
+
+main .section.disclaimer p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(95 87 83);
 }

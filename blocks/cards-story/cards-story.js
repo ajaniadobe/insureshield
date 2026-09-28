@@ -2,8 +2,10 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 // Cards shown per page at each breakpoint (matches the source slick carousel:
-// 1 on mobile, 2 on tablet, 3 on desktop).
-function cardsPerView() {
+// 1 on mobile, 2 on tablet, 3 on desktop). The `featured` variant always
+// shows one large card per page.
+function cardsPerView(block) {
+  if (block.classList.contains('featured')) return 1;
   if (window.matchMedia('(min-width: 900px)').matches) return 3;
   if (window.matchMedia('(min-width: 600px)').matches) return 2;
   return 1;
@@ -41,11 +43,11 @@ function buildCarousel(block, viewport, track) {
   let page = 0;
 
   function pageCount() {
-    return Math.max(1, Math.ceil(cards.length / cardsPerView()));
+    return Math.max(1, Math.ceil(cards.length / cardsPerView(block)));
   }
 
   function update() {
-    const perView = cardsPerView();
+    const perView = cardsPerView(block);
     const total = pageCount();
     if (page > total - 1) page = total - 1;
     const firstCard = cards[page * perView];

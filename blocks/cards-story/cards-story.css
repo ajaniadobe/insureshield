@@ -213,3 +213,87 @@ main .cards-story .cards-story-card-body a.button:any-link::after {
   border-right: 2px solid currentcolor;
   transform: rotate(45deg);
 }
+
+/* ============================================================
+   featured variant — one large story per slide: image left, text
+   right, headline + teal "Read More" button (CommerceShield Figma
+   "Insights & Resources"). Content: image cell + text cell with a
+   heading, description paragraph and link (no eyebrow).
+   ============================================================ */
+.cards-story.featured .cards-story-viewport > ul > li {
+  flex-basis: 100%;
+  box-shadow: none;
+  background: none;
+  text-align: left;
+}
+
+.cards-story.featured .cards-story-card-image img {
+  border-radius: 4px;
+}
+
+.cards-story.featured .cards-story-card-body {
+  padding: 24px 0 0;
+}
+
+.cards-story.featured .cards-story-card-body > h2,
+.cards-story.featured .cards-story-card-body > h3 {
+  font-size: var(--heading-font-size-l);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+/* description (first paragraph now that there is no eyebrow) */
+.cards-story.featured .cards-story-card-body > p:first-of-type:not(.button-container) {
+  display: block;
+  margin: 16px 0 0;
+  font-size: var(--body-font-size-xs);
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.cards-story.featured .cards-story-card-body > p:first-of-type:not(.button-container)::before {
+  content: none;
+}
+
+.cards-story.featured .cards-story-card-body .button-container {
+  margin-top: 24px;
+  padding-top: 0;
+}
+
+main .cards-story.featured .cards-story-card-body a.button:any-link {
+  border-radius: 100px;
+  padding: 10px 24px;
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  font-weight: 500;
+}
+
+main .cards-story.featured .cards-story-card-body a.button:any-link:hover,
+main .cards-story.featured .cards-story-card-body a.button:any-link:focus {
+  background-color: var(--button-primary-bg-hover);
+  color: var(--button-primary-text);
+}
+
+main .cards-story.featured .cards-story-card-body a.button:any-link::after {
+  content: none;
+}
+
+@media (width >= 900px) {
+  .cards-story.featured .cards-story-viewport > ul > li {
+    flex-direction: row;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .cards-story.featured .cards-story-card-image,
+  .cards-story.featured .cards-story-card-body {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .cards-story.featured .cards-story-card-body {
+    padding: 0;
+  }
+}
