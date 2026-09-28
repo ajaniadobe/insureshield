@@ -1,6 +1,7 @@
 /* cards-pricing — 3 pricing tiers. Each card: colored header band (tier label),
-   large price, and a feature checklist. Middle card is "recommended" (teal band).
-   Matches CommerceShield "No seats. No minimums." section. */
+   plan name, large teal price + unit, and a feature checklist. The middle card
+   is "recommended" (yellow band). Matches the CommerceShield Figma
+   "Reduce Fraud. Protect Revenue. Recover Faster." section. */
 
 .cards-pricing > ul {
   list-style: none;
@@ -14,16 +15,18 @@
 @media (width >= 900px) {
   .cards-pricing > ul {
     grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
   }
 }
 
 .cards-pricing > ul > li {
   display: flex;
   flex-direction: column;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: var(--background-color);
+  box-shadow: 0 0 8px 0 rgb(0 0 0 / 20%);
   overflow: hidden;
+  text-align: left;
 }
 
 .cards-pricing .cards-pricing-card-body {
@@ -31,57 +34,75 @@
   flex-direction: column;
   flex: 1;
   margin: 0;
+  padding-bottom: 24px;
 }
 
-/* tier label header band */
+/* tier label header band (66px tall in Figma) */
 .cards-pricing .cards-pricing-tier {
+  display: flex;
+  align-items: center;
+  min-height: 66px;
+  box-sizing: border-box;
   margin: 0;
   padding: 12px 24px;
-  background-color: #e9edf0;
-  color: var(--text-color);
-  font-size: 13px;
+  background-color: rgb(194 227 226);
+  color: rgb(47 125 120);
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: 1px;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
-/* recommended (middle) tier gets the teal band + white text */
+/* recommended (middle) tier gets the yellow band + dark text */
 .cards-pricing > ul > li.recommended .cards-pricing-tier {
-  background-color: rgb(63 162 157);
-  color: #fff;
+  background-color: rgb(255 196 0);
+  color: var(--text-color);
+}
+
+/* plan name */
+.cards-pricing .cards-pricing-title {
+  margin: 24px 24px 0;
+  font-size: var(--heading-font-size-m);
+  font-weight: 500;
+  line-height: 26px;
+  color: var(--text-color);
 }
 
 /* price */
 .cards-pricing .cards-pricing-price {
   margin: 24px 24px 0;
   font-size: 40px;
-  font-weight: 700;
   line-height: 1.1;
-  color: var(--text-color);
+  color: rgb(47 125 120);
 }
 
-/* subtitle paragraph directly under the price */
-.cards-pricing .cards-pricing-price + p {
-  margin: 4px 24px 0;
-  font-size: 14px;
-  color: rgb(95 95 95);
+.cards-pricing .cards-pricing-price strong {
+  font-weight: 500;
+}
+
+/* unit line directly under the price */
+.cards-pricing .cards-pricing-unit {
+  margin: 16px 24px 0;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgb(95 87 83);
 }
 
 /* feature checklist */
 .cards-pricing .cards-pricing-card-body ul {
-  margin: 20px 0 24px;
+  margin: 24px 0 0;
   padding: 0 24px;
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .cards-pricing .cards-pricing-card-body li {
   position: relative;
   padding-left: 28px;
-  font-size: 14px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 21px;
 }
 
 .cards-pricing .cards-pricing-card-body li::before {
@@ -91,8 +112,8 @@
   top: 1px;
   width: 18px;
   height: 18px;
-  border-radius: 50%;
-  background-color: rgb(63 162 157);
+  border-radius: 3px;
+  background-color: rgb(67 160 71);
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M6 12.5l4 4 8-9"/></svg>');
   background-repeat: no-repeat;
   background-position: center;

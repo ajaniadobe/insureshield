@@ -1,52 +1,63 @@
-/* Tabs — centered text tabs with teal active underline; panel below holds
-   heading + text + image + CTA. Matches CommerceShield "Turn risk signals
-   into the right next action" section. */
+/* Tabs — centered text tabs with a short teal keyline under the active tab;
+   panel stacks a centered heading + text above a full-width image. Matches the
+   CommerceShield Figma "How It Works" component (node 4169:259). */
 
 .tabs .tabs-list {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 8px 40px;
+  gap: 8px;
   max-width: 100%;
-  margin-bottom: 40px;
-  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 32px;
+  border-bottom: 1px solid rgb(223 219 215);
   overflow-x: auto;
 }
 
 .tabs .tabs-list button {
+  position: relative;
   flex: 0 0 auto;
   margin: 0;
   border: none;
-  border-bottom: 3px solid transparent;
   border-radius: 0;
-  padding: 12px 4px;
+  padding: 16px;
   background: none;
-  color: rgb(95 95 95);
+  color: rgb(95 87 83);
   font-family: var(--body-font-family);
   font-size: 16px;
-  font-weight: 500;
-  line-height: 1.25;
+  font-weight: 400;
+  line-height: 24px;
   white-space: nowrap;
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
+  transition: color 0.2s;
 }
 
 .tabs .tabs-list button p {
   margin: 0;
 }
 
-.tabs .tabs-list button:hover {
+.tabs .tabs-list button:hover,
+.tabs .tabs-list button:focus {
+  background: none;
   color: var(--text-color);
 }
 
 .tabs .tabs-list button[aria-selected='true'] {
-  color: var(--text-color);
-  border-bottom-color: rgb(63 162 157);
+  color: rgb(47 125 120);
+  font-weight: 500;
   cursor: initial;
 }
 
-/* panel: text column + image column side by side (matches the source).
-   Stacks (text first) on mobile. */
+.tabs .tabs-list button[aria-selected='true']::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 72px;
+  height: 4px;
+  background-color: var(--button-primary-bg);
+  transform: translateX(-50%);
+}
+
+/* panel: centered heading + text, image below */
 .tabs .tabs-panel {
   display: flex;
   flex-direction: column;
@@ -54,13 +65,13 @@
   margin: 0;
   padding: 0;
   border: none;
+  text-align: center;
 }
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
 }
 
-/* text column first in flow (mobile order), image second */
 .tabs .tabs-panel-text {
   order: 0;
 }
@@ -71,39 +82,34 @@
 
 .tabs .tabs-panel h2,
 .tabs .tabs-panel h3 {
-  margin: 0 0 12px;
+  margin: 0 0 8px;
+  font-size: var(--heading-font-size-m);
+  font-weight: 400;
+  line-height: 29px;
 }
 
 /* stylelint-disable-next-line no-descending-specificity */
 .tabs .tabs-panel-text > p {
-  margin: 0 0 24px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .tabs .tabs-panel picture {
   display: block;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .tabs .tabs-panel img {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
-.tabs .tabs-panel .button-container {
-  margin-top: 24px;
-}
-
-@media (width >= 900px) {
-  .tabs .tabs-panel {
-    flex-direction: row;
-    align-items: center;
-    gap: 48px;
-  }
-
-  .tabs .tabs-panel-text,
-  .tabs .tabs-panel-image {
-    flex: 1 1 0;
-    min-width: 0;
+@media (width < 900px) {
+  .tabs .tabs-list {
+    justify-content: flex-start;
   }
 }

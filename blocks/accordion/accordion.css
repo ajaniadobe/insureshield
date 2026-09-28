@@ -1,6 +1,13 @@
 /* Accordion — FAQ style: white cards with soft shadow, chevron toggle.
    Matches the CommerceShield FAQ design. */
 
+/* Figma: FAQ column is 800px wide, centered in the 1200px content area */
+.accordion {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
 .accordion .accordion-item {
   margin: 0;
   border: none;
@@ -23,6 +30,10 @@
   cursor: pointer;
   list-style: none;
   transition: background-color 0.2s;
+}
+
+.accordion .accordion-item-label p {
+  margin: 0;
 }
 
 .accordion .accordion-item-label::-webkit-details-marker {

@@ -194,6 +194,41 @@
   object-fit: cover;
 }
 
+/* split-hero typography (CommerceShield Figma): eyebrow 16/24, headline
+   48/56 regular with a 72x4 teal underline, body 20/32 */
+.hero-commerce.hero-split p:first-child:not(.button-container) {
+  margin: 0 0 8px;
+  font-size: var(--body-font-size-xs);
+  line-height: 24px;
+}
+
+.hero-commerce.hero-split h1 {
+  margin: 0 0 24px;
+  line-height: 1.17;
+}
+
+.hero-commerce.hero-split h1::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin-top: 16px;
+  background-color: var(--button-primary-bg);
+}
+
+.hero-commerce.hero-split h1 + p {
+  line-height: 32px;
+}
+
+.hero-commerce.hero-split .button-container a.button:any-link {
+  border-radius: 100px;
+  padding: 10px 24px;
+}
+
+.hero-commerce.hero-split .button-container:last-of-type a.button:any-link {
+  padding: 8px 22px;
+}
+
 /* mobile: hero CTAs stack full-width (matches the source) */
 .hero-commerce.hero-split .button-container {
   display: block;
@@ -212,15 +247,23 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 48px;
-    max-width: 1200px;
+    gap: 36px;
+
+    /* 1200px content box + 32px side padding (border-box), matching the
+       other sections' content width */
+    max-width: 1264px;
     margin: 0 auto;
-    padding: 48px 32px;
+    padding: 40px 32px;
   }
 
+  /* Figma: 556px text column, 608px media column */
   .hero-commerce.hero-split > div {
-    flex: 1 1 0;
+    flex: 556 1 0;
     min-width: 0;
+  }
+
+  .hero-commerce.hero-split > div:first-child {
+    flex-grow: 608;
   }
 
   /* desktop: text panel left, image right (DOM is image-first) */

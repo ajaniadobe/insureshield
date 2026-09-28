@@ -49,6 +49,10 @@ export function gridTable(name, rows) {
   }));
   // each column region = content width + leading + trailing space
   const region = colWidth.map((w) => w + 2);
+  // widen the last column when the header (block name) is wider than the
+  // body, otherwise the header row would overflow the border
+  const bodyTotal = region.reduce((a, b) => a + b, 0) + (numCols - 1);
+  region[numCols - 1] += Math.max(0, name.length + 2 - bodyTotal);
   const innerTotal = region.reduce((a, b) => a + b, 0) + (numCols - 1);
 
   const fullBorder = `+${'-'.repeat(innerTotal)}+`;
