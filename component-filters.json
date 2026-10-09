@@ -18,7 +18,16 @@
       "fragment",
       "form",
       "embed-adaptive-form",
-      "cards-solutions"
+      "cards-solutions",
+      "accordion",
+      "cards-connect",
+      "cards-feature",
+      "cards-pricing",
+      "cards-story",
+      "checklist",
+      "columns-logos",
+      "hero-commerce",
+      "tabs"
     ]
   },
   {
@@ -67,15 +76,6 @@
     "id": "columns-logos",
     "components": [
       "column"
-    ]
-  },
-  {
-    "id": "column",
-    "components": [
-      "text",
-      "image",
-      "button",
-      "title"
     ]
   },
   {
