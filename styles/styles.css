@@ -312,7 +312,9 @@ main .section.center > .default-content-wrapper > p:not(:has(picture, img)) {
   margin-right: auto;
 }
 
-/* eyebrow — the first short paragraph above the heading */
+/* eyebrow — the first short paragraph above the heading. Keep the horizontal
+   auto margins (from the max-width rule above) so the capped-width box stays
+   centered, not left-anchored. */
 main .section.center > .default-content-wrapper > p:first-child {
   margin: 0 auto 8px;
   font-size: var(--body-font-size-xs);
