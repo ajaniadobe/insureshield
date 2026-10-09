@@ -17,7 +17,8 @@
       "columns",
       "fragment",
       "form",
-      "embed-adaptive-form"
+      "embed-adaptive-form",
+      "cards-solutions"
     ]
   },
   {
@@ -42,6 +43,12 @@
     "id": "cards-pricing",
     "components": [
       "pricing-card"
+    ]
+  },
+  {
+    "id": "cards-solutions",
+    "components": [
+      "cards-solutions-item"
     ]
   },
   {

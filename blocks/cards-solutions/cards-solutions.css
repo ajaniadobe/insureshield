@@ -1,0 +1,248 @@
+/* Import component-specific tokens */
+@import url('./cards-solutions-tokens.css');
+
+/* cards-solutions — bordered "Solutions" panel: intro, integrations logo grid,
+   product cards (Figma 78WHsrGv4kp2vY9yje7Ail node 102:4) */
+
+/* Inter is used only by this block, so it loads with the block, not site-wide.
+   Latin subset of Inter 400 (Fontsource 5.3.0, SIL OFL 1.1). */
+/* stylelint-disable max-line-length */
+@font-face {
+  font-family: inter;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../../fonts/inter-regular.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* stylelint-enable max-line-length */
+
+/* Metric-matched local fallback to limit layout shift while Inter loads */
+@font-face {
+  font-family: inter-fallback;
+  size-adjust: 107%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  src: local('Arial');
+}
+
+/* Section band: the decorative pattern runs edge to edge behind the panel */
+main > .section.cards-solutions-container {
+  margin-block: var(--cards-solutions-section-margin-y);
+}
+
+main > .section > .cards-solutions-wrapper {
+  max-width: var(--cards-solutions-wrapper-max-width);
+  padding: var(--cards-solutions-section-padding-y) var(--cards-solutions-section-padding-x);
+  background:
+    var(--cards-solutions-pattern-image) center top / var(--cards-solutions-pattern-width) auto no-repeat
+    var(--cards-solutions-pattern-background);
+}
+
+.cards-solutions {
+  max-width: var(--cards-solutions-max-width);
+  margin: 0 auto;
+  background-color: var(--cards-solutions-background);
+}
+
+/* Grid: cells share 1px borders via negative-margin overlap */
+.cards-solutions > ul {
+  list-style: none;
+  margin: 0;
+  padding: var(--cards-solutions-item-border-width) 0 0 var(--cards-solutions-item-border-width);
+  display: grid;
+  grid-template-columns: var(--cards-solutions-columns);
+  gap: var(--cards-solutions-gap);
+}
+
+.cards-solutions > ul > li {
+  grid-column: 1 / -1;
+  margin: var(--cards-solutions-border-overlap) 0 0 var(--cards-solutions-border-overlap);
+  border: var(--cards-solutions-item-border-width) var(--cards-solutions-item-border-style) var(--cards-solutions-item-border-color);
+  border-radius: var(--cards-solutions-item-border-radius);
+  background-color: var(--cards-solutions-item-background);
+  box-shadow:
+    var(--cards-solutions-item-shadow-x) var(--cards-solutions-item-shadow-y)
+    var(--cards-solutions-item-shadow-blur) var(--cards-solutions-item-shadow-spread)
+    var(--cards-solutions-item-shadow-color);
+}
+
+.cards-solutions p,
+.cards-solutions h2,
+.cards-solutions h3,
+.cards-solutions h4,
+.cards-solutions ul ul {
+  margin: 0;
+}
+
+/* Intro statement */
+.cards-solutions > ul > li.cards-solutions-intro {
+  grid-column: var(--cards-solutions-intro-grid-column);
+  grid-row: var(--cards-solutions-intro-grid-row);
+  padding:
+    var(--cards-solutions-intro-padding-top) var(--cards-solutions-intro-padding-x)
+    var(--cards-solutions-intro-padding-bottom);
+  font-family: var(--cards-solutions-body-font-family);
+  font-size: var(--cards-solutions-intro-font-size);
+  font-weight: var(--cards-solutions-intro-font-weight);
+  line-height: var(--cards-solutions-intro-line-height);
+  color: var(--cards-solutions-intro-color);
+}
+
+.cards-solutions .cards-solutions-intro :is(h2, h3, h4) {
+  font: inherit;
+}
+
+/* Group label ("Direct integrations") */
+.cards-solutions > ul > li.cards-solutions-label {
+  grid-column: var(--cards-solutions-label-grid-column);
+  display: flex;
+  align-items: center;
+  min-height: var(--cards-solutions-tile-height);
+  box-sizing: border-box;
+  padding: 0 var(--cards-solutions-label-padding-x);
+}
+
+.cards-solutions .cards-solutions-label :is(p, h2, h3, h4) {
+  font-family: var(--cards-solutions-body-font-family);
+  font-size: var(--cards-solutions-label-font-size);
+  font-weight: var(--cards-solutions-label-font-weight);
+  line-height: var(--cards-solutions-label-line-height);
+  color: var(--cards-solutions-label-color);
+}
+
+/* Logo tiles */
+.cards-solutions > ul > li.cards-solutions-logo {
+  grid-column: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--cards-solutions-tile-height);
+  box-sizing: border-box;
+}
+
+.cards-solutions .cards-solutions-logo picture {
+  display: flex;
+  line-height: 0;
+}
+
+.cards-solutions .cards-solutions-logo img {
+  max-width: 100%;
+  height: auto;
+  zoom: var(--cards-solutions-logo-scale);
+}
+
+/* Product cards */
+.cards-solutions > ul > li.cards-solutions-card {
+  grid-column: var(--cards-solutions-card-grid-column);
+  display: flex;
+  flex-direction: column;
+  gap: var(--cards-solutions-content-gap);
+  padding: var(--cards-solutions-card-padding);
+  background-color: var(--cards-solutions-card-background);
+}
+
+.cards-solutions .cards-solutions-card > .cards-solutions-card-image {
+  margin:
+    calc(-1 * var(--cards-solutions-card-padding)) calc(-1 * var(--cards-solutions-card-padding))
+    var(--cards-solutions-image-margin-bottom);
+  line-height: 0;
+}
+
+.cards-solutions .cards-solutions-card > .cards-solutions-card-image img {
+  display: block;
+  width: 100%;
+  height: var(--cards-solutions-image-height);
+  object-fit: contain;
+}
+
+.cards-solutions .cards-solutions-card > .cards-solutions-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--cards-solutions-content-gap);
+  font-family: var(--cards-solutions-body-font-family);
+  font-size: var(--cards-solutions-body-font-size);
+  font-style: var(--cards-solutions-body-font-style);
+  font-weight: var(--cards-solutions-body-font-weight);
+  line-height: var(--cards-solutions-body-line-height);
+  letter-spacing: var(--cards-solutions-body-letter-spacing);
+  color: var(--cards-solutions-body-color);
+}
+
+.cards-solutions .cards-solutions-card > .cards-solutions-card-body > :is(h2, h3, h4) {
+  margin-bottom: var(--cards-solutions-heading-margin-bottom);
+  font-family: var(--cards-solutions-heading-font-family);
+  font-size: var(--cards-solutions-heading-font-size);
+  font-style: var(--cards-solutions-heading-font-style);
+  font-weight: var(--cards-solutions-heading-font-weight);
+  line-height: var(--cards-solutions-heading-line-height);
+  letter-spacing: var(--cards-solutions-heading-letter-spacing);
+  text-transform: var(--cards-solutions-heading-text-transform);
+  color: var(--cards-solutions-heading-color);
+}
+
+.cards-solutions .cards-solutions-card > .cards-solutions-card-body > p {
+  margin-bottom: var(--cards-solutions-body-margin-bottom);
+}
+
+/* Feature tags: inline list, "·" before every tag after the first */
+.cards-solutions .cards-solutions-card > .cards-solutions-card-body > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cards-solutions-tag-row-gap) var(--cards-solutions-tag-column-gap);
+  font-size: var(--cards-solutions-tag-font-size);
+  line-height: var(--cards-solutions-tag-line-height);
+  color: var(--cards-solutions-tag-color);
+}
+
+.cards-solutions .cards-solutions-card > .cards-solutions-card-body > ul > li + li::before {
+  content: var(--cards-solutions-tag-separator);
+  margin-right: var(--cards-solutions-tag-separator-space);
+}
+
+/* CTA: right-aligned text link with trailing arrow */
+.cards-solutions .cards-solutions-card > .cards-solutions-card-body > p.cards-solutions-cta {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-height: var(--cards-solutions-button-row-height);
+  margin-top: auto; /* pin to the card bottom when a row neighbour is taller */
+}
+
+.cards-solutions .cards-solutions-card .cards-solutions-cta a:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cards-solutions-button-icon-gap);
+  padding: var(--cards-solutions-button-padding-y) var(--cards-solutions-button-padding-x);
+  border-radius: var(--cards-solutions-button-border-radius);
+  background: var(--cards-solutions-button-background);
+  font-family: var(--cards-solutions-button-font-family);
+  font-size: var(--cards-solutions-button-font-size);
+  font-style: var(--cards-solutions-button-font-style);
+  font-weight: var(--cards-solutions-button-font-weight);
+  line-height: var(--cards-solutions-button-line-height);
+  letter-spacing: var(--cards-solutions-button-letter-spacing);
+  text-transform: var(--cards-solutions-button-text-transform);
+  text-decoration: none;
+  color: var(--cards-solutions-button-color);
+  transition: color var(--cards-solutions-transition-duration) var(--cards-solutions-transition-timing);
+}
+
+.cards-solutions .cards-solutions-card .cards-solutions-cta a:any-link::after {
+  content: "";
+  flex: 0 0 auto;
+  width: var(--cards-solutions-button-icon-size);
+  height: var(--cards-solutions-button-icon-size);
+  background-color: currentcolor;
+  mask: var(--cards-solutions-button-icon) center / contain no-repeat;
+}
+
+.cards-solutions .cards-solutions-card .cards-solutions-cta a:any-link:hover {
+  color: var(--cards-solutions-button-hover-color);
+  text-decoration: var(--cards-solutions-button-hover-decoration);
+}

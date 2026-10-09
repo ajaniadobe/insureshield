@@ -1,0 +1,103 @@
+VISUAL MEASUREMENT CHECKLIST FOR cards-solutions
+================================================
+Extracted from Figma node: 102:4 ("Viewport=Phone", file 78WHsrGv4kp2vY9yje7Ail)
+Date: 2026-10-09
+
+SOURCE NOTE: Figma returned 429 (rate limit) for get_design_context on every
+child node. Values below come from:
+  [meta]  get_metadata XML (exact x/y/width/height of every layer)
+  [px]    pixel sampling of the 2x full-frame export (reference/figma-component.png)
+  [glyph] cap-height of glyphs in the 2x export (Inter cap-height = 0.727em)
+Values tagged "EST" should be re-checked against get_design_context once Figma
+allows more requests.
+
+LAYOUT & DIMENSIONS
+☑ Container width: 358px (source: [meta] 84:11 width 358, frame 390 with 16px sides)
+☑ Container height: 2017.75px (source: [meta] 84:11 height)
+☑ Container padding: top 96px right 16px bottom 96px left 16px (source: [meta] 84:10 y376 vs frame y280; 84:11 x7816 vs frame x7800; 84:11 bottom 2393.75 vs frame bottom 2489.75)
+☑ Grid/Flex gap: 0px — cells share 1px borders (source: [meta] item pitch == item height, e.g. tiles y722.94 / 799.88 / 876.81)
+☑ Column count: 2 for logo tiles, intro/label/cards span both (source: [meta] 84:24 x7817 w178.5, 84:31 x7995.5 w178.5)
+☑ Item width: 357px full-span, 178.5px logo tile (source: [meta] 84:12 / 84:24)
+☑ Item height: intro 269px, label 76.94px, tile 76.94px, card 349/373/349/369px (source: [meta] 84:12, 84:20, 84:24, 84:66, 84:266, 84:668, 84:744)
+
+SPACING (EXACT PIXELS)
+☑ Section padding: 96px 16px (source: [meta] see container padding)
+☑ Item internal padding: intro 66px 32px 35px 32px (source: [meta] 84:15 paragraph y443 vs panel y377; 84:13 bottom 611 vs panel bottom 646; 84:13 x7849 vs panel x7817)
+☑ Item internal padding: label 0px 16px, vertically centred in 76.94px (source: [meta] 84:21 x7833, y671.97 h24)
+☑ Item internal padding: product card 24px 24px 24px 24px (source: [meta] 84:264 x7841 y977.75 vs card x7817 y953.75; text right 8149 vs card right 8174; CTA bottom 1277.75 vs card bottom 1302.75)
+☑ Gap between items: 0px with -1px border overlap (source: [px] single 2px-wide #B2B2BB line at x=32-33 and y=730-731 in 2x export)
+☑ Margin between text elements: 12px (source: [meta] 84:264 bottom 1057.75 → title 1069.75; title bottom 1093.75 → desc 1105.75; desc bottom 1185.75 → tags 1197.75; tags bottom 1233.75 → CTA row 1245.75)
+☑ Image margin/padding: illustration 356x96 bleeds to card top/sides (-24px top, -24px sides), slot 80px tall, extra 8px below the 96px art (source: [meta] 84:67 x7817 y953.75 356x96 inside 84:264 308x80 at y977.75)
+☑ Tag gap: column 5.5px, row 4px, separator dot 5px wide + 12px trailing space (source: [meta] 84:242 right 7958 → 84:246 x7963.47; 84:248 x7980.33; row y1197.75 → 1217.75 with h16)
+☑ CTA row: 32px tall, text 20px at bottom, right aligned, icon 16px with 8px gap (source: [meta] 84:265 h32, 84:258 y1257.75 h20 x8036 w89, 115:2564 x8133 w16)
+
+COLORS (EXACT HEX + OPACITY)
+☑ Background color: #FFFFFF panels / #F3F9F9 product cards (opacity: 100%) (source: [px] p{60,200}=255,255,255; p{60,1440}=243,249,249)
+☑ Primary text color: #121212 (source: [px] dominant dark in intro/title/tags histograms = 18,18,18)
+☑ Secondary text color: #5F5753 (source: [px] dominant in description histogram = 95,87,83)
+☑ Accent/link color: #075A5A (source: [px] dominant in "Get a quote" histogram = 7,90,90)
+☑ Border color: #B2B2BB (opacity: 100%) (source: [px] p{32,400}, p{390,950}, p{746,1440} = 178,178,187)
+☑ Logo color: #5F5753-ish grey, baked into PNG assets (source: [px] logo crops)
+☑ Hover background: none (source: no hover variant in frame — EST)
+☑ Hover text color: #075A5A with underline (source: no hover variant in frame — EST, follows link convention)
+
+TYPOGRAPHY (ALL PROPERTIES)
+☑ Heading font-family: Inter 400, block-scoped (fonts/inter-regular.woff2) (source: [px] glyph shapes of g/a/t; rendered text widths within 1–2% of Figma text boxes)
+☑ Heading (card title) font-size: 16px (source: [glyph] "S" 24px tall @2x → 12px ≈ 16 × 0.727 + overshoot)
+☑ Heading font-weight: 400 (source: [px] visual stroke weight matches body — EST)
+☑ Heading line-height: 24px (source: [meta] 84:234 h24 single line, 84:636 h48 two lines)
+☑ Heading letter-spacing: 0px (source: none observed — EST)
+☑ Heading text-transform: none (source: [px] mixed case)
+☑ Heading font-style: normal (source: [px] upright glyphs)
+☑ Intro font-size: 20px (source: [glyph] "T" 29px @2x → 14.5px = 20 × 0.727)
+☑ Intro line-height: 28px (source: [meta] 84:16 h168 / 6 lines)
+☑ Intro font-weight: 400 (source: [px] — EST)
+☑ Label font-size: 16px, line-height 24px, weight 400 (source: [glyph] "D" 23px @2x; [meta] 84:21 h24)
+☑ Body font-family: Inter 400, block-scoped (source: as heading)
+☑ Body font-size: 16px (source: [glyph] "F" 23px @2x → 11.5px = 16 × 0.727)
+☑ Body font-weight: 400 (source: [px] — EST)
+☑ Body line-height: 20px (source: [meta] 84:237 h80 / 4 lines; 84:910 h100 / 5 lines)
+☑ Body letter-spacing: 0px (source: none observed — EST)
+☑ Body font-style: normal (source: [px] upright glyphs)
+☑ Tag font-size: 16px, line-height 16px, weight 400, color #121212 (source: [glyph] "L" 24px @2x; [meta] tag text h16)
+☑ CTA font-size: 16px, line-height 20px, weight 400, color #075A5A (source: [glyph] "G" 24px @2x; [meta] 84:258 h20)
+
+BORDERS & RADIUS (⚠️ CRITICAL - DO NOT ASSUME)
+☑ Border width: 1px (source: [px] 2px-wide line in 2x export)
+☑ Border style: solid (source: [px] continuous line)
+☑ Border color: #B2B2BB (source: [px] 178,178,187)
+☑ Border radius: 0px (source: [px] square corners at panel/tile intersections)
+
+SHADOWS (EXACT VALUES)
+☑ Box-shadow offset-x: 0px (source: [px] no shadow pixels outside borders — white at x=30-31)
+☑ Box-shadow offset-y: 0px (source: [px] none)
+☑ Box-shadow blur: 0px (source: [px] none)
+☑ Box-shadow spread: 0px (source: [px] none)
+☑ Box-shadow color: rgba(0,0,0,0) (source: [px] none)
+
+EFFECTS & TRANSITIONS
+☑ Hover transform: none (source: no interaction states in frame)
+☑ Transition duration: 0ms (source: no interaction states in frame)
+☑ Transition timing: ease (source: default — no interaction states in frame)
+☑ Opacity changes: none (source: no interaction states in frame)
+
+NOT MIGRATED (needs Figma export)
+☑ Decorative isometric line/dot background pattern behind the block (source: [meta] 84:7 "Icon" 390x2209.75) — export blocked by rate limit
+
+DESKTOP (≥900px) — from user-supplied 1440px frame render (2880x2392 @2x JPEG,
+reference/figma-desktop.jpg); values = 2x pixel positions / 2
+================================================================
+☑ Panel: 1184px wide at x=128, 96px band above/below (source: borders at x 256/2623, y 192/2198)
+☑ Grid: 6 equal columns of 197.33px (source: verticals at x 256, 1440, 1834, 2228, 2623)
+☑ Intro: spans 3 columns x 2 rows, 592x273; padding 80 top / 32 sides / 48 bottom (source: 4 lines at 72px pitch from cap-top 369 in cell 192–738)
+☑ Intro type: 28px / 36px (source: T cap 41px @2x → 20.5px = 28 × 0.727; line pitch 72 @2x)
+☑ Tile rows: 136.5px pitch, label + 5 logos fill the right 3 columns (source: horizontals at y 192, 465, 738)
+☑ Label: 20px / 28px, padding-x 24, vertically centred (source: D cap 30 @2x; two lines 56 @2x apart; text x 1491)
+☑ Logos: same size as mobile (source: Shopify 153 display px ≈ 110 CSS)
+☑ Cards: span 3 columns, rows 355 / 375 (source: horizontals at y 738, 1448, 2198; row 2 taller because ParcelPro copy wraps to 3 lines in Inter)
+☑ Card illustration: 1.68x mobile art = mobile asset at full card width, ~158px tall from card top, +10px before the 12px gap (source: dark-art bbox 146x205 vs 87x122 mobile, all four cards)
+☑ Card title: 20px / 28px at +180 from card top (source: S cap 28 @2x; title-width ratio vs mobile)
+☑ Description: 14px / 20px (source: F cap 20 @2x; 40px @2x line pitch)
+☑ Tags: 12px / 16px, ~14px either side of the "·" separator (source: L cap 18 @2x; x-runs 308-478 | 508-510 | 539-678)
+☑ CTA: 14px / 20px, right-aligned, pinned to card bottom (source: G cap 21 @2x; CTAs aligned across a row)
+☑ Background: irregular isometric line/dot drawing — not periodic (RMSE test), traced to bg-pattern-desktop.png / bg-pattern-mobile.png
