@@ -1,0 +1,115 @@
+/* cards-solutions tokens — values from cards-solutions-measurements.txt
+   (Figma 78WHsrGv4kp2vY9yje7Ail node 102:4, Phone 390px).
+   Values marked EST were estimated while Figma design context was rate-limited.
+   Tokens are also scoped to the wrapper so it can apply the section padding. */
+
+.cards-solutions-wrapper,
+.cards-solutions {
+  /* ===== LAYOUT & DIMENSIONS ===== */
+  --cards-solutions-max-width: none; /* 358px at 390px viewport comes from the 16px section padding */
+  --cards-solutions-section-padding-y: 56px; /* + 40px section margin = 96px per Figma */
+  --cards-solutions-section-padding-x: 16px;
+  --cards-solutions-gap: 0;
+  --cards-solutions-tile-min-width: 178px;
+  --cards-solutions-tile-height: 78px;
+  --cards-solutions-border-overlap: -1px;
+
+  /* ===== CONTAINER COLORS ===== */
+  --cards-solutions-background: #fff;
+
+  /* ===== ITEM/CARD PROPERTIES ===== */
+  --cards-solutions-item-background: #fff;
+  --cards-solutions-card-background: #f3f9f9;
+  --cards-solutions-item-border-width: 1px;
+  --cards-solutions-item-border-style: solid;
+  --cards-solutions-item-border-color: #b2b2bb;
+  --cards-solutions-item-border-radius: 0;
+  --cards-solutions-item-shadow-x: 0;
+  --cards-solutions-item-shadow-y: 0;
+  --cards-solutions-item-shadow-blur: 0;
+  --cards-solutions-item-shadow-spread: 0;
+  --cards-solutions-item-shadow-color: rgb(0 0 0 / 0%);
+  --cards-solutions-intro-padding-top: 66px;
+  --cards-solutions-intro-padding-bottom: 35px;
+  --cards-solutions-intro-padding-x: 32px;
+  --cards-solutions-label-padding-x: 16px;
+  --cards-solutions-card-padding: 24px;
+
+  /* ===== TYPOGRAPHY - HEADINGS (card title) ===== */
+  --cards-solutions-heading-font-family: var(--body-font-family); /* EST: Figma uses Inter */
+  --cards-solutions-heading-font-size: 16px;
+  --cards-solutions-heading-font-weight: 400; /* EST */
+  --cards-solutions-heading-font-style: normal;
+  --cards-solutions-heading-line-height: 24px;
+  --cards-solutions-heading-letter-spacing: 0;
+  --cards-solutions-heading-text-transform: none;
+  --cards-solutions-heading-color: #121212;
+  --cards-solutions-heading-margin-bottom: 0;
+
+  /* ===== TYPOGRAPHY - INTRO ===== */
+  --cards-solutions-intro-font-size: 20px;
+  --cards-solutions-intro-line-height: 28px;
+  --cards-solutions-intro-font-weight: 400; /* EST */
+  --cards-solutions-intro-color: #121212;
+
+  /* ===== TYPOGRAPHY - LABEL ("Direct integrations") ===== */
+  --cards-solutions-label-font-size: 16px;
+  --cards-solutions-label-line-height: 24px;
+  --cards-solutions-label-font-weight: 400; /* EST */
+  --cards-solutions-label-color: #121212;
+
+  /* ===== TYPOGRAPHY - BODY ===== */
+  --cards-solutions-body-font-family: var(--body-font-family); /* EST: Figma uses Inter */
+  --cards-solutions-body-font-size: 16px;
+  --cards-solutions-body-font-weight: 400; /* EST */
+  --cards-solutions-body-font-style: normal;
+  --cards-solutions-body-line-height: 20px;
+  --cards-solutions-body-letter-spacing: 0;
+  --cards-solutions-body-color: #5f5753;
+  --cards-solutions-body-margin-bottom: 0;
+
+  /* ===== TYPOGRAPHY - TAGS ===== */
+  --cards-solutions-tag-font-size: 16px;
+  --cards-solutions-tag-line-height: 16px;
+  --cards-solutions-tag-color: #121212;
+  --cards-solutions-tag-column-gap: 5.5px;
+  --cards-solutions-tag-row-gap: 4px;
+  --cards-solutions-tag-separator: "·";
+  --cards-solutions-tag-separator-space: 12px;
+
+  /* ===== TYPOGRAPHY - CTA/LINKS/BUTTONS ===== */
+  --cards-solutions-button-font-family: var(--body-font-family);
+  --cards-solutions-button-font-size: 16px;
+  --cards-solutions-button-font-weight: 400; /* EST */
+  --cards-solutions-button-font-style: normal;
+  --cards-solutions-button-line-height: 20px;
+  --cards-solutions-button-letter-spacing: 0;
+  --cards-solutions-button-text-transform: none;
+  --cards-solutions-button-color: #075a5a;
+  --cards-solutions-button-background: transparent;
+  --cards-solutions-button-border-radius: 0;
+  --cards-solutions-button-padding-x: 0;
+  --cards-solutions-button-padding-y: 0;
+  --cards-solutions-button-row-height: 32px;
+  --cards-solutions-button-icon-size: 16px;
+  --cards-solutions-button-icon-gap: 8px;
+  --cards-solutions-button-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z'/%3E%3C/svg%3E");
+
+  /* ===== HOVER STATES (none in Figma frame) ===== */
+  --cards-solutions-item-hover-shadow-y: 0;
+  --cards-solutions-item-hover-shadow-blur: 0;
+  --cards-solutions-item-hover-shadow-color: rgb(0 0 0 / 0%);
+  --cards-solutions-item-hover-transform: none;
+  --cards-solutions-button-hover-color: #075a5a;
+  --cards-solutions-button-hover-decoration: underline;
+
+  /* ===== TRANSITIONS ===== */
+  --cards-solutions-transition-duration: 0ms;
+  --cards-solutions-transition-timing: ease;
+
+  /* ===== SPACING BETWEEN ELEMENTS ===== */
+  --cards-solutions-image-height: 96px;
+  --cards-solutions-image-margin-bottom: 8px;
+  --cards-solutions-content-gap: 12px;
+  --cards-solutions-logo-scale: 0.5; /* logo assets are exported @2x; set to 1 for 1x logos */
+}

@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-solutions",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-10-09T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.figma.com/design/78WHsrGv4kp2vY9yje7Ail/Secure-Commerce-Designs?node-id=102-4",
+    "originPage": "Secure Commerce Designs — Solutions (Phone)",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "feature",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "intro text + label + logo tile grid + illustration/title/description/tag list/link CTA cards in a shared-border panel",
+    "buttonCount": 4,
+    "imageCount": 9
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "product/solution overviews in a single bordered panel",
+      "integration or partner logo grids with a label",
+      "stacked product cards with inline feature tags and text-link CTAs"
+    ],
+    "notSuitableFor": [
+      "separate floating cards with shadows (use cards-feature)",
+      "image-on-top story cards (use cards-story)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/figma-solutions"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-09T12:55:00.000Z"
+  }
+}
