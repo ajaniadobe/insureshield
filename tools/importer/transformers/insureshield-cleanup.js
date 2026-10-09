@@ -76,6 +76,29 @@ export default function transform(hookName, element, payload) {
       'noscript',
     ]);
 
+    // Internal links: rewrite legacy AEM URLs to EDS paths —
+    // /us/en/about/contact-us.html?ref=homepage_hero -> /us/en/about/contact-us
+    // (drop .html, drop the onsite `ref` tracking param, lowercase the path).
+    // Absolute insureshield.com links become site-relative. /content/* paths
+    // (e.g. the embedded form path) and non-page assets are left untouched.
+    element.querySelectorAll('a[href]').forEach((a) => {
+      const href = a.getAttribute('href');
+      let url;
+      try {
+        url = new URL(href, 'https://www.insureshield.com');
+      } catch (e) {
+        return;
+      }
+      if (!/^(www\.)?insureshield\.com$/.test(url.hostname)) return;
+      if (url.pathname.startsWith('/content/')) return;
+      if (!/^\/[a-z]{2}\/[a-z]{2}(\/|\.html$|$)/i.test(url.pathname)) return;
+      let path = url.pathname.replace(/\.html$/i, '').toLowerCase();
+      if (path.length > 1) path = path.replace(/\/$/, '');
+      url.searchParams.delete('ref');
+      const query = url.searchParams.toString();
+      a.setAttribute('href', `${path}${query ? `?${query}` : ''}${url.hash}`);
+    });
+
     // Strip inline event/tracking attributes where present in captured DOM.
     element.querySelectorAll('*').forEach((el) => {
       el.removeAttribute('onclick');

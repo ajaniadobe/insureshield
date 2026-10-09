@@ -178,7 +178,11 @@ var CustomImportScript = (() => {
     if (hookName === TransformHook.beforeTransform) {
       WebImporter.DOMUtils.remove(element, [
         "#__tealiumImplicitmodal",
-        ".popover-ups"
+        ".popover-ups",
+        "#onetrust-consent-sdk",
+        "#onetrust-banner-sdk",
+        "#onetrust-pc-sdk",
+        ".onetrust-pc-dark-filter"
       ]);
     }
     if (hookName === TransformHook.afterTransform) {
@@ -198,13 +202,39 @@ var CustomImportScript = (() => {
         "#ak_recent",
         "#runModeConfig",
         "#currentPageUrl",
-        "#alert-json-data"
+        "#alert-json-data",
+        'img[src*="bat.bing.com"]'
       ]);
+      const walker = element.ownerDocument.createTreeWalker(
+        element,
+        128
+        /* SHOW_COMMENT */
+      );
+      const comments = [];
+      while (walker.nextNode()) comments.push(walker.currentNode);
+      comments.forEach((c) => c.remove());
       WebImporter.DOMUtils.remove(element, [
         "iframe",
         "link",
         "noscript"
       ]);
+      element.querySelectorAll("a[href]").forEach((a) => {
+        const href = a.getAttribute("href");
+        let url;
+        try {
+          url = new URL(href, "https://www.insureshield.com");
+        } catch (e) {
+          return;
+        }
+        if (!/^(www\.)?insureshield\.com$/.test(url.hostname)) return;
+        if (url.pathname.startsWith("/content/")) return;
+        if (!/^\/[a-z]{2}\/[a-z]{2}(\/|\.html$|$)/i.test(url.pathname)) return;
+        let path = url.pathname.replace(/\.html$/i, "").toLowerCase();
+        if (path.length > 1) path = path.replace(/\/$/, "");
+        url.searchParams.delete("ref");
+        const query = url.searchParams.toString();
+        a.setAttribute("href", `${path}${query ? `?${query}` : ""}${url.hash}`);
+      });
       element.querySelectorAll("*").forEach((el) => {
         el.removeAttribute("onclick");
         el.removeAttribute("data-cmp-data-layer");
