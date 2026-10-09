@@ -8,8 +8,8 @@ page** (hero-split "Grow with Confidence" card, teal dividers, connect-card
 icons, section order). The Figma API is rate-limited, so use the **live URL
 above** as the reference for any future visual comparison instead of Figma.
 
-Migrated page (ours): <https://main--insureshield--ajaniadobe.aem.live/us/en/commerceshield>
-Local preview: `http://localhost:3000/content/us/en/commerceshield`
+Migrated page (ours): <https://main--insureshield--ajaniadobe.aem.live/us/en/solutions/commerceshield>
+Local preview: `http://localhost:3000/content/us/en/solutions/commerceshield`
 
 ---
 
