@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
 import { toClassName } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
   // build tablist
@@ -34,6 +35,8 @@ export default async function decorate(block) {
     const button = document.createElement('button');
     button.className = 'tabs-tab';
     button.id = `tab-${id}`;
+    // the label cell is removed, so the button takes over its UE instrumentation
+    moveInstrumentation(label, button);
     button.innerHTML = label.innerHTML;
     button.setAttribute('aria-controls', `tabpanel-${id}`);
     button.setAttribute('aria-selected', !i);
