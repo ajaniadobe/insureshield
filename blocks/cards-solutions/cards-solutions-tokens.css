@@ -47,8 +47,11 @@
   --cards-solutions-label-padding-x: 16px;
   --cards-solutions-card-padding: 24px;
 
+  /* ===== TYPOGRAPHY - FONT (Inter per Figma, block-scoped; see @font-face in cards-solutions.css) ===== */
+  --cards-solutions-font-family: inter, inter-fallback, sans-serif;
+
   /* ===== TYPOGRAPHY - HEADINGS (card title) ===== */
-  --cards-solutions-heading-font-family: var(--body-font-family); /* EST: Figma uses Inter */
+  --cards-solutions-heading-font-family: var(--cards-solutions-font-family);
   --cards-solutions-heading-font-size: 16px;
   --cards-solutions-heading-font-weight: 400; /* EST */
   --cards-solutions-heading-font-style: normal;
@@ -71,7 +74,7 @@
   --cards-solutions-label-color: #121212;
 
   /* ===== TYPOGRAPHY - BODY ===== */
-  --cards-solutions-body-font-family: var(--body-font-family); /* EST: Figma uses Inter */
+  --cards-solutions-body-font-family: var(--cards-solutions-font-family);
   --cards-solutions-body-font-size: 16px;
   --cards-solutions-body-font-weight: 400; /* EST */
   --cards-solutions-body-font-style: normal;
@@ -90,7 +93,7 @@
   --cards-solutions-tag-separator-space: 12px;
 
   /* ===== TYPOGRAPHY - CTA/LINKS/BUTTONS ===== */
-  --cards-solutions-button-font-family: var(--body-font-family);
+  --cards-solutions-button-font-family: var(--cards-solutions-font-family);
   --cards-solutions-button-font-size: 16px;
   --cards-solutions-button-font-weight: 400; /* EST */
   --cards-solutions-button-font-style: normal;
