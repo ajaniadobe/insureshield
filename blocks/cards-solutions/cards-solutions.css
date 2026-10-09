@@ -4,8 +4,17 @@
 /* cards-solutions — bordered "Solutions" panel: intro, integrations logo grid,
    product cards (Figma 78WHsrGv4kp2vY9yje7Ail node 102:4) */
 
+/* Section band: the decorative pattern runs edge to edge behind the panel */
+main > .section.cards-solutions-container {
+  margin-block: var(--cards-solutions-section-margin-y);
+}
+
 main > .section > .cards-solutions-wrapper {
+  max-width: var(--cards-solutions-wrapper-max-width);
   padding: var(--cards-solutions-section-padding-y) var(--cards-solutions-section-padding-x);
+  background:
+    var(--cards-solutions-pattern-image) center top / var(--cards-solutions-pattern-width) auto no-repeat
+    var(--cards-solutions-pattern-background);
 }
 
 .cards-solutions {
@@ -20,7 +29,7 @@ main > .section > .cards-solutions-wrapper {
   margin: 0;
   padding: var(--cards-solutions-item-border-width) 0 0 var(--cards-solutions-item-border-width);
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--cards-solutions-tile-min-width), 1fr));
+  grid-template-columns: var(--cards-solutions-columns);
   gap: var(--cards-solutions-gap);
 }
 
@@ -46,6 +55,8 @@ main > .section > .cards-solutions-wrapper {
 
 /* Intro statement */
 .cards-solutions > ul > li.cards-solutions-intro {
+  grid-column: var(--cards-solutions-intro-grid-column);
+  grid-row: var(--cards-solutions-intro-grid-row);
   padding:
     var(--cards-solutions-intro-padding-top) var(--cards-solutions-intro-padding-x)
     var(--cards-solutions-intro-padding-bottom);
@@ -62,6 +73,7 @@ main > .section > .cards-solutions-wrapper {
 
 /* Group label ("Direct integrations") */
 .cards-solutions > ul > li.cards-solutions-label {
+  grid-column: var(--cards-solutions-label-grid-column);
   display: flex;
   align-items: center;
   min-height: var(--cards-solutions-tile-height);
@@ -100,6 +112,7 @@ main > .section > .cards-solutions-wrapper {
 
 /* Product cards */
 .cards-solutions > ul > li.cards-solutions-card {
+  grid-column: var(--cards-solutions-card-grid-column);
   display: flex;
   flex-direction: column;
   gap: var(--cards-solutions-content-gap);
@@ -122,6 +135,7 @@ main > .section > .cards-solutions-wrapper {
 }
 
 .cards-solutions .cards-solutions-card > .cards-solutions-card-body {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   gap: var(--cards-solutions-content-gap);
@@ -174,6 +188,7 @@ main > .section > .cards-solutions-wrapper {
   align-items: flex-end;
   justify-content: flex-end;
   min-height: var(--cards-solutions-button-row-height);
+  margin-top: auto; /* pin to the card bottom when a row neighbour is taller */
 }
 
 .cards-solutions .cards-solutions-card .cards-solutions-cta a:any-link {

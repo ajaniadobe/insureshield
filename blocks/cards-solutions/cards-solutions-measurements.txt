@@ -83,3 +83,21 @@ EFFECTS & TRANSITIONS
 
 NOT MIGRATED (needs Figma export)
 ☑ Decorative isometric line/dot background pattern behind the block (source: [meta] 84:7 "Icon" 390x2209.75) — export blocked by rate limit
+
+DESKTOP (≥900px) — from user-supplied 1440px frame render (2880x2392 @2x JPEG,
+reference/figma-desktop.jpg); values = 2x pixel positions / 2
+================================================================
+☑ Panel: 1184px wide at x=128, 96px band above/below (source: borders at x 256/2623, y 192/2198)
+☑ Grid: 6 equal columns of 197.33px (source: verticals at x 256, 1440, 1834, 2228, 2623)
+☑ Intro: spans 3 columns x 2 rows, 592x273; padding 80 top / 32 sides / 48 bottom (source: 4 lines at 72px pitch from cap-top 369 in cell 192–738)
+☑ Intro type: 28px / 36px (source: T cap 41px @2x → 20.5px = 28 × 0.727; line pitch 72 @2x)
+☑ Tile rows: 136.5px pitch, label + 5 logos fill the right 3 columns (source: horizontals at y 192, 465, 738)
+☑ Label: 20px / 28px, padding-x 24, vertically centred (source: D cap 30 @2x; two lines 56 @2x apart; text x 1491)
+☑ Logos: same size as mobile (source: Shopify 153 display px ≈ 110 CSS)
+☑ Cards: span 3 columns, rows 355 / 375 (source: horizontals at y 738, 1448, 2198; row 2 taller because ParcelPro copy wraps to 3 lines in Inter)
+☑ Card illustration: 1.68x mobile art = mobile asset at full card width, ~158px tall from card top, +10px before the 12px gap (source: dark-art bbox 146x205 vs 87x122 mobile, all four cards)
+☑ Card title: 20px / 28px at +180 from card top (source: S cap 28 @2x; title-width ratio vs mobile)
+☑ Description: 14px / 20px (source: F cap 20 @2x; 40px @2x line pitch)
+☑ Tags: 12px / 16px, ~14px either side of the "·" separator (source: L cap 18 @2x; x-runs 308-478 | 508-510 | 539-678)
+☑ CTA: 14px / 20px, right-aligned, pinned to card bottom (source: G cap 21 @2x; CTAs aligned across a row)
+☑ Background: irregular isometric line/dot drawing — not periodic (RMSE test), traced to bg-pattern-desktop.png / bg-pattern-mobile.png

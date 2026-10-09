@@ -7,12 +7,24 @@
 .cards-solutions {
   /* ===== LAYOUT & DIMENSIONS ===== */
   --cards-solutions-max-width: none; /* 358px at 390px viewport comes from the 16px section padding */
-  --cards-solutions-section-padding-y: 56px; /* + 40px section margin = 96px per Figma */
+  --cards-solutions-wrapper-max-width: none;
+  --cards-solutions-section-margin-y: 0; /* the 96px band below replaces the section margin */
+  --cards-solutions-section-padding-y: 96px;
   --cards-solutions-section-padding-x: 16px;
   --cards-solutions-gap: 0;
   --cards-solutions-tile-min-width: 178px;
+  --cards-solutions-columns: repeat(auto-fill, minmax(var(--cards-solutions-tile-min-width), 1fr));
+  --cards-solutions-intro-grid-column: 1 / -1;
+  --cards-solutions-intro-grid-row: auto;
+  --cards-solutions-label-grid-column: 1 / -1;
+  --cards-solutions-card-grid-column: 1 / -1;
   --cards-solutions-tile-height: 78px;
   --cards-solutions-border-overlap: -1px;
+
+  /* ===== DECORATIVE BACKGROUND (traced from the Figma frame renders) ===== */
+  --cards-solutions-pattern-image: url('./bg-pattern-mobile.png');
+  --cards-solutions-pattern-width: 390px;
+  --cards-solutions-pattern-background: #fff;
 
   /* ===== CONTAINER COLORS ===== */
   --cards-solutions-background: #fff;
@@ -112,4 +124,43 @@
   --cards-solutions-image-margin-bottom: 8px;
   --cards-solutions-content-gap: 12px;
   --cards-solutions-logo-scale: 0.5; /* logo assets are exported @2x; set to 1 for 1x logos */
+}
+
+/* Desktop — measured from the 1440px Figma frame render (2x screenshot):
+   1184px panel on a 6-column grid (197.33px tracks); intro spans 3 columns
+   and both 136.5px tile rows; product cards span 3 columns, two per row. */
+@media (width >= 900px) {
+  .cards-solutions-wrapper,
+  .cards-solutions {
+    --cards-solutions-max-width: 1184px;
+    --cards-solutions-section-padding-x: 32px;
+    --cards-solutions-columns: repeat(6, minmax(0, 1fr));
+    --cards-solutions-intro-grid-column: span 3;
+    --cards-solutions-intro-grid-row: span 2;
+    --cards-solutions-label-grid-column: auto;
+    --cards-solutions-card-grid-column: span 3;
+    --cards-solutions-tile-height: 137.5px;
+    --cards-solutions-pattern-image: url('./bg-pattern-desktop.png');
+    --cards-solutions-pattern-width: 1440px;
+    --cards-solutions-intro-padding-top: 80px;
+    --cards-solutions-intro-padding-bottom: 48px;
+    --cards-solutions-intro-padding-x: 32px;
+    --cards-solutions-intro-font-size: 28px;
+    --cards-solutions-intro-line-height: 36px;
+    --cards-solutions-label-padding-x: 24px;
+    --cards-solutions-label-font-size: 20px;
+    --cards-solutions-label-line-height: 28px;
+    --cards-solutions-heading-font-size: 20px;
+    --cards-solutions-heading-line-height: 28px;
+    --cards-solutions-body-font-size: 14px;
+    --cards-solutions-body-line-height: 20px;
+    --cards-solutions-tag-font-size: 12px;
+    --cards-solutions-tag-line-height: 16px;
+    --cards-solutions-tag-column-gap: 14px;
+    --cards-solutions-tag-separator-space: 14px;
+    --cards-solutions-button-font-size: 14px;
+    --cards-solutions-button-line-height: 20px;
+    --cards-solutions-image-height: 158px;
+    --cards-solutions-image-margin-bottom: 10px;
+  }
 }
