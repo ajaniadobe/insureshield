@@ -25,7 +25,7 @@
             "template": {
               "name": "Calculator Row",
               "model": "calculator-premium-row",
-              "type": "input"
+              "type": "value"
             }
           }
         }
@@ -39,15 +39,22 @@
         {
           "component": "select",
           "name": "type",
-          "value": "input",
+          "value": "value",
           "label": "Row type",
           "valueType": "string",
           "options": [
-            { "name": "Heading", "value": "heading" },
-            { "name": "Result", "value": "result" },
-            { "name": "Input (label + default value)", "value": "input" },
-            { "name": "Disclaimer", "value": "disclaimer" },
-            { "name": "Call to action", "value": "cta" }
+            { "name": "Card: heading", "value": "heading" },
+            { "name": "Card: package value slider (label + default range)", "value": "value" },
+            { "name": "Card: result label", "value": "result" },
+            { "name": "Card: button label (opens monthly estimate)", "value": "cta" },
+            { "name": "Card: disclaimer", "value": "disclaimer" },
+            { "name": "Rates per $100 of value (low – high)", "value": "rates" },
+            { "name": "Monthly estimate: heading", "value": "quote-heading" },
+            { "name": "Monthly estimate: package value slider label", "value": "quote-value" },
+            { "name": "Monthly estimate: shipments a week slider (label + default range)", "value": "quote-volume" },
+            { "name": "Monthly estimate: result label", "value": "quote-result" },
+            { "name": "Monthly estimate: disclaimer ({low} / {high} = rates)", "value": "quote-disclaimer" },
+            { "name": "Monthly estimate: call to action link", "value": "quote-cta" }
           ]
         },
         {
@@ -62,7 +69,7 @@
           "valueType": "string",
           "name": "value",
           "value": "",
-          "label": "Default value (input rows only)"
+          "label": "Default range or rates (value, quote-volume and rates rows)"
         }
       ]
     }

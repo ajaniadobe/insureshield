@@ -14,22 +14,27 @@
     "imagePattern": "noimg"
   },
   "contentPattern": {
-    "structure": "Estimated monthly premium calculator card (STUB). One row per item, cells [type | label/content | value] where type is heading, result, input, disclaimer or cta: heading + result range, N input rows (label + default value, rendered with a disabled placeholder slider), disclaimer, CTA link",
+    "structure": "Premium estimator matching the insureshield.com shipping-insurance hero. Per-package card (package-value range slider over a histogram, value x rate / 100) whose CTA opens a side sheet with the monthly estimate (package value + shipments-a-week range sliders, shipments x 52 / 12 x value x rate / 100). One row per item, cells [type | label/content | value]; card rows: heading, value, result, cta, disclaimer; config: rates; sheet rows: quote-heading, quote-value, quote-volume, quote-result, quote-disclaimer, quote-cta",
     "rowsPerItem": [
-      { "row": "heading", "cells": ["Estimated monthly premium"] },
-      { "row": "result", "cells": ["$135 – $190 /mo"] },
-      { "row": "input", "cells": ["Average shipments a month", "100"] },
-      { "row": "input", "cells": ["Average shipment value", "$200"] },
-      { "row": "input", "cells": ["Share shipped internationally", "25%"] },
-      { "row": "disclaimer", "cells": ["This is an estimate. Final rates may vary based on your coverage, shipment details, and risk profile."] },
-      { "row": "cta", "cells": ["<a href=\"https://signup-eagle.upscapital.com/en/sign-up\">Get your pricing</a>"] }
+      { "row": "heading", "cells": ["What’s your average package value?"] },
+      { "row": "value", "cells": ["Package value", "$100 – $1,000"] },
+      { "row": "result", "cells": ["Estimated premium per package"] },
+      { "row": "cta", "cells": ["Estimate monthly premium"] },
+      { "row": "disclaimer", "cells": ["Estimate only. Actual pricing and availability depend on the shipment, customer, coverage option, and applicable policy terms."] },
+      { "row": "rates", "cells": ["Rate per $100 of value", "0.80 – 1.05"] },
+      { "row": "quote-heading", "cells": ["Estimate monthly premium"] },
+      { "row": "quote-value", "cells": ["Typical package value"] },
+      { "row": "quote-volume", "cells": ["Shipments a week", "50 – 250"] },
+      { "row": "quote-result", "cells": ["Estimated monthly premium"] },
+      { "row": "quote-disclaimer", "cells": ["A range from your package values and weekly shipments, at {low} to {high} per $100 of value."] },
+      { "row": "quote-cta", "cells": ["<a href=\"https://signup-eagle.upscapital.com/en/sign-up\">Get your pricing</a>"] }
     ],
-    "buttonCount": 1,
+    "buttonCount": 2,
     "imageCount": 0
   },
   "reuseGuidance": {
     "suitableFor": [
-      "compact single-pane estimate/quote calculator cards (stub, static defaults)"
+      "interactive shipping insurance premium estimates (per package, and monthly in a side sheet)"
     ],
     "notSuitableFor": [
       "two-pane impact calculators with result visualisation (use calculator-impact)"

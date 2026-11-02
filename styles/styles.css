@@ -248,6 +248,41 @@ main > .section:first-of-type {
   }
 }
 
+/* split: default content on the left, block on the right (12-column grid:
+   text spans 6 columns, the block spans 5 after a 1-column gap) */
+main > .section.split {
+  padding-top: 40px;
+}
+
+main > .section.split > div + div {
+  margin-top: 32px;
+}
+
+@media (width >= 900px) {
+  main > .section.split {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    align-items: start;
+    gap: 24px;
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding: 64px 32px;
+  }
+
+  main > .section.split > div {
+    grid-column: 1 / span 6;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  main > .section.split > div + div {
+    grid-column: 8 / span 5;
+    margin: 0;
+  }
+}
+
 /* section metadata */
 main .section.light,
 main .section.highlight {
@@ -304,12 +339,41 @@ main .section.center > .default-content-wrapper {
   text-align: center;
 }
 
+/* legal disclaimer at the foot of the page */
+main .section.disclaimer {
+  margin: 16px 0 40px;
+}
+
+main .section.disclaimer p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(95 87 83);
+}
+
 /* keep centered intro *text* paragraphs from stretching full width, but let
    media (infographics) span the full content width */
 main .section.center > .default-content-wrapper > p:not(:has(picture, img)) {
   max-width: 720px;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* intro subhead directly under the heading */
+main .section.center > .default-content-wrapper > h2 + p {
+  margin-top: 0;
+  font-size: var(--body-font-size-m);
+  line-height: 1.4;
+}
+
+main .section.center > .default-content-wrapper > p:has(picture, img) {
+  margin-top: 40px;
+}
+
+main .section.center > .default-content-wrapper > p:has(picture, img) img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* eyebrow — the first short paragraph above the heading. Keep the horizontal
@@ -352,26 +416,9 @@ main .section.center > .default-content-wrapper > h3::after {
   background-color: rgb(63 162 157);
 }
 
-/* intro subhead directly under the heading */
-main .section.center > .default-content-wrapper > h2 + p {
-  margin-top: 0;
-  font-size: var(--body-font-size-m);
-  line-height: 1.4;
-}
-
 /* space between a centered intro and the block (or media) that follows */
 main .section.center > .default-content-wrapper:has(+ div) {
   margin-bottom: 40px;
-}
-
-main .section.center > .default-content-wrapper > p:has(picture, img) {
-  margin-top: 40px;
-}
-
-main .section.center > .default-content-wrapper > p:has(picture, img) img {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 /* trailing default content after a block (e.g. "Have questions?" + CTA) */
@@ -400,16 +447,4 @@ main .section.center > div + .default-content-wrapper a.button:any-link {
 main .section.center > div + .default-content-wrapper a.button:hover,
 main .section.center > div + .default-content-wrapper a.button:focus {
   background-color: var(--button-primary-bg-hover);
-}
-
-/* legal disclaimer at the foot of the page */
-main .section.disclaimer {
-  margin: 16px 0 40px;
-}
-
-main .section.disclaimer p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 20px;
-  color: rgb(95 87 83);
 }

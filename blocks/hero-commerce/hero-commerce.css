@@ -196,6 +196,10 @@
 
 /* split-hero typography (CommerceShield Figma): eyebrow 16/24, headline
    48/56 regular with a 72x4 teal underline, body 20/32 */
+.hero-commerce.hero-split h1 + p {
+  line-height: 32px;
+}
+
 .hero-commerce.hero-split p:first-child:not(.button-container) {
   margin: 0 0 8px;
   font-size: var(--body-font-size-xs);
@@ -216,11 +220,11 @@
   background-color: var(--button-primary-bg);
 }
 
-.hero-commerce.hero-split h1 + p {
-  line-height: 32px;
-}
-
+/* mobile: hero CTAs stack full-width (matches the source) */
 .hero-commerce.hero-split .button-container a.button:any-link {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
   border-radius: 100px;
   padding: 10px 24px;
 }
@@ -229,16 +233,9 @@
   padding: 8px 22px;
 }
 
-/* mobile: hero CTAs stack full-width (matches the source) */
 .hero-commerce.hero-split .button-container {
   display: block;
   margin: 16px 0 0;
-}
-
-.hero-commerce.hero-split .button-container a.button:any-link {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 @media (width >= 900px) {
@@ -262,17 +259,14 @@
     min-width: 0;
   }
 
+  /* desktop: text panel left, image right (DOM is image-first) */
   .hero-commerce.hero-split > div:first-child {
     flex-grow: 608;
+    order: 1;
   }
 
-  /* desktop: text panel left, image right (DOM is image-first) */
   .hero-commerce.hero-split > div:last-child {
     order: 0;
-  }
-
-  .hero-commerce.hero-split > div:first-child {
-    order: 1;
   }
 
   /* desktop: CTAs return to inline auto-width, side by side */
