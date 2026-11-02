@@ -1,0 +1,45 @@
+{
+  "variantName": "calculator-premium",
+  "baseBlock": "calculator",
+  "canonicalModel": "standalone",
+  "sourceContext": {
+    "originUrl": "http://localhost:8811/",
+    "originPage": "/us/en/comp-e",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "interactive-calculator",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "Estimated monthly premium calculator card (STUB). One row per item, cells [type | label/content | value] where type is heading, result, input, disclaimer or cta: heading + result range, N input rows (label + default value, rendered with a disabled placeholder slider), disclaimer, CTA link",
+    "rowsPerItem": [
+      { "row": "heading", "cells": ["Estimated monthly premium"] },
+      { "row": "result", "cells": ["$135 – $190 /mo"] },
+      { "row": "input", "cells": ["Average shipments a month", "100"] },
+      { "row": "input", "cells": ["Average shipment value", "$200"] },
+      { "row": "input", "cells": ["Share shipped internationally", "25%"] },
+      { "row": "disclaimer", "cells": ["This is an estimate. Final rates may vary based on your coverage, shipment details, and risk profile."] },
+      { "row": "cta", "cells": ["<a href=\"https://signup-eagle.upscapital.com/en/sign-up\">Get your pricing</a>"] }
+    ],
+    "buttonCount": 1,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "compact single-pane estimate/quote calculator cards (stub, static defaults)"
+    ],
+    "notSuitableFor": [
+      "two-pane impact calculators with result visualisation (use calculator-impact)"
+    ]
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "pagesUsing": ["/us/en/comp-e"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-09T00:00:00.000Z"
+  }
+}

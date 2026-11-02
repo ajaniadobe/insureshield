@@ -1,0 +1,84 @@
+/* Block: calculator-premium -- "Estimated monthly premium" card (STUB).
+   Structural layout only: bordered single-pane card with a heading/result
+   header, a stack of label + value + slider rows, a disclaimer and a CTA.
+   Brand colour/typography is applied later by the design pass. */
+
+.calculator-premium {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  border: 1px solid var(--calculator-premium-border, currentcolor);
+}
+
+.calculator-premium p {
+  margin: 0;
+}
+
+.calculator-premium-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.calculator-premium-heading {
+  font-size: var(--body-font-size-xs);
+}
+
+.calculator-premium-result {
+  font-size: var(--body-font-size-s);
+}
+
+.calculator-premium-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* label + value on one line, slider full width underneath */
+.calculator-premium-input {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 8px 16px;
+}
+
+.calculator-premium-input-label {
+  font-size: 14px;
+}
+
+.calculator-premium-input-value {
+  text-align: end;
+}
+
+.calculator-premium-range {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0;
+  accent-color: currentcolor;
+}
+
+.calculator-premium-range:disabled {
+  cursor: default;
+}
+
+.calculator-premium-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.calculator-premium-disclaimer {
+  font-size: 12px;
+}
+
+.calculator-premium-cta .button-container {
+  margin: 0;
+}
+
+@media (width >= 600px) {
+  .calculator-premium {
+    padding: 32px;
+  }
+}

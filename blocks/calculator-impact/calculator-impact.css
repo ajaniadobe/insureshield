@@ -1,0 +1,139 @@
+/* Block: calculator-impact -- "Estimate your business impact" panel (STUB).
+   Structural layout only: bordered panel, stacked on mobile and split into
+   two equal panes (intro + sliders | results + CTA) from 900px.
+   Brand colour/typography is applied later by the design pass. */
+
+.calculator-impact {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--calculator-impact-border-color, rgb(128 128 128 / 50%));
+}
+
+.calculator-impact p {
+  margin: 0;
+}
+
+.calculator-impact-inputs,
+.calculator-impact-results {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+}
+
+.calculator-impact-results {
+  border-top: 1px solid var(--calculator-impact-border-color, rgb(128 128 128 / 50%));
+}
+
+/* left pane */
+.calculator-impact-intro {
+  margin-bottom: 8px;
+}
+
+.calculator-impact-intro h2 {
+  margin: 0 0 16px;
+}
+
+.calculator-impact-input {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 8px 16px;
+}
+
+.calculator-impact-input-label {
+  font-size: 14px;
+}
+
+.calculator-impact-input-value {
+  text-align: end;
+}
+
+.calculator-impact-range {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0;
+  accent-color: currentcolor;
+}
+
+.calculator-impact-range:disabled {
+  cursor: default;
+}
+
+/* right pane */
+.calculator-impact-result {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 8px 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--calculator-impact-border-color, rgb(128 128 128 / 50%));
+}
+
+.calculator-impact-result-primary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.calculator-impact-result-label {
+  font-size: var(--body-font-size-xs);
+}
+
+.calculator-impact-result-value {
+  text-align: end;
+}
+
+.calculator-impact-viz {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.calculator-impact-viz:empty {
+  display: none;
+}
+
+.calculator-impact-legend,
+.calculator-impact-disclaimer {
+  font-size: 12px;
+}
+
+.calculator-impact-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.calculator-impact-cta .button-container {
+  margin: 0;
+}
+
+@media (width >= 600px) {
+  .calculator-impact-inputs,
+  .calculator-impact-results {
+    padding: 32px;
+  }
+
+  .calculator-impact-cta {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+@media (width >= 900px) {
+  .calculator-impact {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .calculator-impact-inputs {
+    justify-content: center;
+  }
+
+  .calculator-impact-results {
+    border-top: 0;
+    border-left: 1px solid var(--calculator-impact-border-color, rgb(128 128 128 / 50%));
+  }
+}

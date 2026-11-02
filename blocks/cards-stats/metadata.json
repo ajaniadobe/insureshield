@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-stats",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "sourceContext": {
+    "originUrl": "http://localhost:8811/",
+    "originPage": "/us/en/comp-e",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "illustration"
+  },
+  "contentPattern": {
+    "structure": "3 stat items: illustration (with big number), title, description (+ hover footnote and 'Get pricing'). One row per item: [image | <h3>title</h3><p>description</p><p>* footnote</p><p><a>Get pricing</a></p>]",
+    "rowsPerItem": "[image | <h3>title</h3><p>description</p><p>* See the statistics note at the foot of the page.</p><p><a>Get pricing</a></p>]",
+    "items": 3,
+    "buttonCount": 3,
+    "imageCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "borderless stat/proof-point rows with large illustrations",
+      "feature highlights with optional hover-revealed footnote and text CTA"
+    ],
+    "notSuitableFor": [
+      "floating shadow icon cards (use cards-feature)",
+      "bordered single-panel grids (use cards-standout or cards-solutions)"
+    ]
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "pagesUsing": ["/us/en/comp-e"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-09T00:00:00.000Z"
+  }
+}

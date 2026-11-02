@@ -1,0 +1,39 @@
+{
+  "variantName": "checklist",
+  "baseBlock": "checklist",
+  "canonicalModel": "standalone",
+  "sourceContext": {
+    "originUrl": "http://localhost:8811/",
+    "originPage": "/us/en/comp-e",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "illustration"
+  },
+  "contentPattern": {
+    "structure": "Side-by-side illustration + text: block fields image, text (<h2> + check-icon <ul> of bold title + description items + optional CTA paragraph). Image left by default; the swap option puts it on the right at desktop",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "image + heading + check-icon benefit list sections",
+      "mirrored image/text benefit sections (swap option)"
+    ],
+    "notSuitableFor": [
+      "multi-item card grids (use a cards variant)"
+    ]
+  },
+  "options": [
+    { "class": "swap", "label": "Swap (image on the right)" }
+  ],
+  "memberVariantIds": [],
+  "usage": {
+    "pagesUsing": ["/us/en/solutions/commerceshield", "/us/en/comp-e"],
+    "reuseCount": 2,
+    "lastUsed": "2026-10-09T00:00:00.000Z"
+  }
+}

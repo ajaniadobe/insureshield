@@ -1,0 +1,38 @@
+{
+  "variantName": "accordion",
+  "baseBlock": "accordion",
+  "canonicalModel": "collection",
+  "sourceContext": {
+    "originUrl": "http://localhost:8811/",
+    "originPage": "/us/en/comp-e",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "faq",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "[summary | text] - question in the first cell, rich-text answer in the second; rendered as <details>/<summary> items",
+    "rowsPerItem": "[summary | text]",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "FAQ lists",
+      "expandable question/answer content"
+    ],
+    "notSuitableFor": [
+      "tabbed content (use tabs)"
+    ]
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "pagesUsing": ["/us/en/solutions/commerceshield", "/us/en/comp-e"],
+    "reuseCount": 2,
+    "lastUsed": "2026-10-09T00:00:00.000Z"
+  }
+}

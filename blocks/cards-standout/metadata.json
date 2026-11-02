@@ -1,0 +1,45 @@
+{
+  "variantName": "cards-standout",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "sourceContext": {
+    "originUrl": "http://localhost:8811/",
+    "originPage": "/us/en/comp-e",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "illustration"
+  },
+  "contentPattern": {
+    "structure": "Bordered 4-cell panel: heading cell + 3 illustrated items. Rows: [ (empty) | <h2>heading</h2> ] then [image | <h3>title</h3><p>description</p>] per item",
+    "rowsPerItem": [
+      "[ (empty) | <h2>What makes us stand out against competitors</h2> ]",
+      "[image | <h3>Trusted insurance provider</h3><p>...</p>]",
+      "[image | <h3>Multi-carrier, multi-modal</h3><p>...</p>]",
+      "[image | <h3>Flexible integration options</h3><p>...</p>]"
+    ],
+    "items": 4,
+    "buttonCount": 0,
+    "imageCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "single bordered panel with a heading cell and illustrated differentiators",
+      "4-across feature grids with a shared border"
+    ],
+    "notSuitableFor": [
+      "panels with logos, tags or CTAs (use cards-solutions)",
+      "separate floating cards (use cards-feature)"
+    ]
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "pagesUsing": ["/us/en/comp-e"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-09T00:00:00.000Z"
+  }
+}

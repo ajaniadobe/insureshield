@@ -161,6 +161,136 @@
     ]
   },
   {
+    "id": "calculator-impact-row",
+    "fields": [
+      {
+        "component": "select",
+        "name": "type",
+        "value": "input",
+        "label": "Row type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Intro (heading + text)",
+            "value": "intro"
+          },
+          {
+            "name": "Input (label + default value)",
+            "value": "input"
+          },
+          {
+            "name": "Result (label + value)",
+            "value": "result"
+          },
+          {
+            "name": "Legend",
+            "value": "legend"
+          },
+          {
+            "name": "Summary",
+            "value": "summary"
+          },
+          {
+            "name": "Disclaimer",
+            "value": "disclaimer"
+          },
+          {
+            "name": "Call to action (link + note)",
+            "value": "cta"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "label",
+        "value": "",
+        "label": "Label / content",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "value",
+        "value": "",
+        "label": "Value (input/result default, or CTA note)"
+      }
+    ]
+  },
+  {
+    "id": "calculator-premium-row",
+    "fields": [
+      {
+        "component": "select",
+        "name": "type",
+        "value": "input",
+        "label": "Row type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Heading",
+            "value": "heading"
+          },
+          {
+            "name": "Result",
+            "value": "result"
+          },
+          {
+            "name": "Input (label + default value)",
+            "value": "input"
+          },
+          {
+            "name": "Disclaimer",
+            "value": "disclaimer"
+          },
+          {
+            "name": "Call to action",
+            "value": "cta"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "name": "label",
+        "value": "",
+        "label": "Label / content",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "value",
+        "value": "",
+        "label": "Default value (input rows only)"
+      }
+    ]
+  },
+  {
+    "id": "cards-case-study-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "value": "",
+        "label": "Image alt text"
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
     "id": "connect-card",
     "fields": [
       {
@@ -219,6 +349,51 @@
         "name": "image",
         "label": "Image",
         "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "cards-standout-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Illustration (leave empty for the heading cell)",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "cards-stats-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Illustration",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "value": "",
+        "label": "Illustration alt text"
       },
       {
         "component": "richtext",
@@ -302,6 +477,25 @@
         "value": "",
         "label": "Checklist",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "columns-comparison",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "columns",
+        "value": "",
+        "label": "Columns"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "rows",
+        "value": "",
+        "label": "Rows"
       }
     ]
   },

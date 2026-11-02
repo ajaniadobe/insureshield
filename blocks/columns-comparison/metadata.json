@@ -1,0 +1,40 @@
+{
+  "variantName": "columns-comparison",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "sourceContext": {
+    "originUrl": "http://localhost:8811/",
+    "originPage": "/us/en/comp-e",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "comparison",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "3x5 bordered comparison grid. Header row [<h2>title</h2> | <h3>option A</h3> | <h3>option B</h3>], then one row per topic [<img> + <h3>topic</h3> | option A text | option B text]; last column gets a check-circle icon, mobile shows header labels per cell",
+    "columns": 3,
+    "rows": 5,
+    "buttonCount": 0,
+    "imageCount": 4
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "side-by-side feature/coverage comparison tables with a header row",
+      "us-vs-them comparisons where the last column is the positive option"
+    ],
+    "notSuitableFor": [
+      "logo strips (use columns-logos)",
+      "free-form multi-column layouts (use columns)"
+    ]
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "pagesUsing": ["/us/en/comp-e"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-09T00:00:00.000Z"
+  }
+}
