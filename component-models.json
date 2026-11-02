@@ -273,6 +273,10 @@
           {
             "name": "Monthly estimate: call to action link",
             "value": "quote-cta"
+          },
+          {
+            "name": "Monthly estimate: PLACEHOLDER quote form (notice shown on Continue)",
+            "value": "quote-form"
           }
         ]
       },

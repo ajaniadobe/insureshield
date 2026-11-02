@@ -27,6 +27,9 @@ Model: `standalone`. One row per item, cells `[ type | label/content | value ]`:
 | `quote-result` | Monthly result label | |
 | `quote-disclaimer` | Sheet note; `{low}` / `{high}` are replaced with the rates | |
 | `quote-cta` | Link(s) under the monthly result | |
+| `quote-form` | Notice shown when Continue is pressed | |
+
+A `quote-form` row adds a **placeholder** "Build a quote" form to the sheet, with the live drawer's questions (country, solution, shipment types, carriers, coverage). Continue is enabled once a solution, a shipment type and a coverage preference are chosen, and only shows the notice: nothing is submitted anywhere. The `quote-cta` links then show as secondary buttons next to Continue.
 
 Without any `quote-*` rows the `cta` cell is rendered as-is (e.g. a plain link) instead of a button opening the sheet.
 

@@ -561,6 +561,192 @@
   margin: 0;
 }
 
+/* PLACEHOLDER "Build a quote" form inside the sheet */
+.calculator-premium-quote-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.calculator-premium-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.calculator-premium .calculator-premium-field-label {
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--cp-ink);
+}
+
+.calculator-premium .calculator-premium-field-description,
+.calculator-premium .calculator-premium-field-note {
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--cp-ink-medium);
+}
+
+.calculator-premium .calculator-premium-field-note:empty {
+  display: none;
+}
+
+.calculator-premium-select,
+.calculator-premium-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--cp-outline);
+  border-radius: 4px;
+  background-color: var(--cp-surface);
+  color: var(--cp-ink);
+  font: inherit;
+  font-size: 16px;
+}
+
+.calculator-premium-select:focus-visible,
+.calculator-premium-input:focus-visible {
+  outline: 2px solid var(--cp-selection);
+  outline-offset: 1px;
+}
+
+.calculator-premium-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.calculator-premium-choice-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+}
+
+.calculator-premium-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 16px 12px;
+  border: 1px solid var(--cp-outline);
+  border-radius: 4px;
+  background-color: var(--cp-surface);
+  cursor: pointer;
+}
+
+.calculator-premium-choice:has(input:checked) {
+  border-color: var(--cp-selection);
+  box-shadow: inset 0 0 0 1px var(--cp-selection);
+  background-color: rgb(231 242 242 / 50%);
+}
+
+.calculator-premium-choice:has(input:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.calculator-premium-choice:has(input:focus-visible) {
+  outline: 2px solid var(--cp-selection);
+  outline-offset: 2px;
+}
+
+.calculator-premium-choice input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 2px 0 0;
+  accent-color: var(--cp-selection);
+}
+
+.calculator-premium-choice input:focus-visible {
+  outline: none;
+}
+
+.calculator-premium-choice-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.calculator-premium-choice-label {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--cp-ink);
+}
+
+.calculator-premium-choice-description {
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--cp-ink-medium);
+}
+
+.calculator-premium .calculator-premium-other-toggle,
+.calculator-premium .calculator-premium-other-cancel {
+  align-self: flex-start;
+  margin: 0;
+  padding: 8px 16px;
+  border: 1px solid var(--cp-ink-medium);
+  border-radius: 999px;
+  background-color: transparent;
+  color: var(--cp-ink);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.calculator-premium .calculator-premium-other-toggle:hover,
+.calculator-premium .calculator-premium-other-toggle:focus,
+.calculator-premium .calculator-premium-other-cancel:hover,
+.calculator-premium .calculator-premium-other-cancel:focus {
+  background-color: var(--cp-selection-container);
+}
+
+.calculator-premium .calculator-premium-other-toggle[hidden] {
+  display: none;
+}
+
+.calculator-premium-other {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 8px 12px;
+}
+
+.calculator-premium-other[hidden] {
+  display: none;
+}
+
+.calculator-premium-other .calculator-premium-field-label {
+  grid-column: 1 / -1;
+}
+
+.calculator-premium .calculator-premium-quote-submit {
+  margin: 0;
+}
+
+.calculator-premium .calculator-premium-quote-submit:disabled {
+  color: #9e9893;
+  cursor: not-allowed;
+}
+
+.calculator-premium .calculator-premium-quote-status {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--cp-ink);
+}
+
+.calculator-premium .calculator-premium-quote-status:empty {
+  display: none;
+}
+
 /* keep the page from scrolling behind the open sheet */
 html:has(.calculator-premium-sheet[open]) {
   overflow: hidden;

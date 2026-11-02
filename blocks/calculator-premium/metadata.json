@@ -14,7 +14,7 @@
     "imagePattern": "noimg"
   },
   "contentPattern": {
-    "structure": "Premium estimator matching the insureshield.com shipping-insurance hero. Per-package card (package-value range slider over a histogram, value x rate / 100) whose CTA opens a side sheet with the monthly estimate (package value + shipments-a-week range sliders, shipments x 52 / 12 x value x rate / 100). One row per item, cells [type | label/content | value]; card rows: heading, value, result, cta, disclaimer; config: rates; sheet rows: quote-heading, quote-value, quote-volume, quote-result, quote-disclaimer, quote-cta",
+    "structure": "Premium estimator matching the insureshield.com shipping-insurance hero. Per-package card (package-value range slider over a histogram, value x rate / 100) whose CTA opens a side sheet with the monthly estimate (package value + shipments-a-week range sliders, shipments x 52 / 12 x value x rate / 100). One row per item, cells [type | label/content | value]; card rows: heading, value, result, cta, disclaimer; config: rates; sheet rows: quote-heading, quote-value, quote-volume, quote-result, quote-disclaimer, quote-cta, quote-form (PLACEHOLDER Build a quote form)",
     "rowsPerItem": [
       { "row": "heading", "cells": ["What’s your average package value?"] },
       { "row": "value", "cells": ["Package value", "$100 – $1,000"] },
@@ -22,14 +22,15 @@
       { "row": "cta", "cells": ["Estimate monthly premium"] },
       { "row": "disclaimer", "cells": ["Estimate only. Actual pricing and availability depend on the shipment, customer, coverage option, and applicable policy terms."] },
       { "row": "rates", "cells": ["Rate per $100 of value", "0.80 – 1.05"] },
-      { "row": "quote-heading", "cells": ["Estimate monthly premium"] },
+      { "row": "quote-heading", "cells": ["Build a quote"] },
       { "row": "quote-value", "cells": ["Typical package value"] },
       { "row": "quote-volume", "cells": ["Shipments a week", "50 – 250"] },
       { "row": "quote-result", "cells": ["Estimated monthly premium"] },
       { "row": "quote-disclaimer", "cells": ["A range from your package values and weekly shipments, at {low} to {high} per $100 of value."] },
-      { "row": "quote-cta", "cells": ["<a href=\"https://signup-eagle.upscapital.com/en/sign-up\">Get your pricing</a>"] }
+      { "row": "quote-cta", "cells": ["<a href=\"https://signup-eagle.upscapital.com/en/sign-up\">Get your pricing</a>"] },
+      { "row": "quote-form", "cells": ["This quote form is a placeholder. Nothing you entered has been sent."] }
     ],
-    "buttonCount": 2,
+    "buttonCount": 3,
     "imageCount": 0
   },
   "reuseGuidance": {

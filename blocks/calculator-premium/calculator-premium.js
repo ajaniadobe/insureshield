@@ -24,14 +24,17 @@ import { moveInstrumentation } from '../../scripts/scripts.js';
  *   quote-result     | Estimated monthly premium                        |
  *   quote-disclaimer | A range ..., at {low} to {high} per $100 of value. |
  *   quote-cta        | <a href="...">Get your pricing</a>               |
+ *   quote-form       | Placeholder notice shown on Continue             |
  * Value cells hold "low – high" ranges, snapped to the nearest slider stop.
  * {low} / {high} in the quote disclaimer are replaced with the rates.
+ * A quote-form row adds a PLACEHOLDER "Build a quote" form (questions from the
+ * live drawer) around the sheet's sliders; it never submits anything.
  * Without quote-* rows the CTA cell is rendered as-is (e.g. a plain link).
  */
 
 const ROW_TYPES = [
   'heading', 'value', 'result', 'cta', 'disclaimer', 'rates',
-  'quote-heading', 'quote-value', 'quote-volume', 'quote-result', 'quote-disclaimer', 'quote-cta',
+  'quote-heading', 'quote-value', 'quote-volume', 'quote-result', 'quote-disclaimer', 'quote-cta', 'quote-form',
 ];
 
 // slider stops and defaults from the live site
@@ -340,6 +343,197 @@ function buildNote(entry, className) {
   return note;
 }
 
+// PLACEHOLDER quote form: questions and options copied from the live
+// "Build a quote" drawer. Nothing is submitted anywhere.
+const QUOTE_FORM = {
+  country: {
+    label: 'What country is your business based in?',
+    us: 'United States',
+    list: [
+      'United States', 'Australia', 'Brazil', 'Canada', 'China', 'France', 'Germany', 'India',
+      'Italy', 'Japan', 'Mexico', 'Netherlands', 'Singapore', 'South Korea', 'Spain', 'United Kingdom',
+    ],
+    outside: (country) => `We currently serve businesses based in the United States. Tell us how to reach you and a specialist will follow up about your business in ${country}.`,
+  },
+  solution: {
+    label: 'What kind of solution do you need?',
+    options: [
+      { value: 'platform', label: 'Shipping, labeling and insurance', description: 'All in one platform' },
+      { value: 'insurance', label: 'Insurance', description: 'For shipping you already have set up' },
+    ],
+  },
+  types: {
+    label: 'What types of shipments do you typically send?',
+    description: 'Choose all that apply.',
+    freightRemoved: 'Freight was removed. It is available with insurance only.',
+    options: [
+      { value: 'parcel', label: 'Small parcel' },
+      { value: 'freight', label: 'Freight' },
+      { value: 'luxury', label: 'Luxury goods' },
+    ],
+  },
+  carriers: {
+    label: 'Who do you ship with?',
+    description: 'Choose all that apply.',
+    options: [
+      { value: 'ups', label: 'UPS' },
+      { value: 'usps', label: 'USPS' },
+      { value: 'dhl', label: 'DHL' },
+      { value: 'fedex', label: 'FedEx' },
+    ],
+    other: 'Other provider',
+    otherLabel: 'Provider name',
+    cancel: 'Cancel',
+  },
+  coverage: {
+    label: 'Do you have a coverage type preference?',
+    options: [
+      { value: 'blanket', label: 'Blanket', description: 'Coverage for every shipment' },
+      { value: 'transactional', label: 'Transactional', description: 'Coverage per shipment' },
+      { value: 'unsure', label: 'No preference / unsure', description: 'Help me choose' },
+    ],
+  },
+  submit: 'Continue',
+  notice: 'This quote form is a placeholder. Nothing you entered has been sent.',
+};
+
+/** Radio or checkbox group rendered as selectable cards. */
+function buildChoices(id, type, { label, description, options }) {
+  const fieldset = el('fieldset', 'calculator-premium-choices', { 'data-type': type });
+  const legend = el('legend', 'calculator-premium-field-label');
+  legend.textContent = label;
+  fieldset.append(legend);
+  if (description) {
+    const desc = el('p', 'calculator-premium-field-description', { id: `${id}-description` });
+    desc.textContent = description;
+    fieldset.setAttribute('aria-describedby', desc.id);
+    fieldset.append(desc);
+  }
+  const list = el('div', 'calculator-premium-choice-list');
+  options.forEach((option) => {
+    const choice = el('label', 'calculator-premium-choice');
+    const input = el('input', '', { type, name: id, value: option.value });
+    const text = el('span', 'calculator-premium-choice-text');
+    const title = el('span', 'calculator-premium-choice-label');
+    title.textContent = option.label;
+    text.append(title);
+    if (option.description) {
+      const desc = el('span', 'calculator-premium-choice-description');
+      desc.textContent = option.description;
+      text.append(desc);
+    }
+    choice.append(input, text);
+    list.append(choice);
+  });
+  fieldset.append(list);
+  return fieldset;
+}
+
+/**
+ * PLACEHOLDER "Build a quote" form around the sheet's sliders. Continue is
+ * enabled once a solution, a shipment type and a coverage preference are
+ * chosen; submitting only shows the placeholder notice.
+ */
+function buildQuoteForm({
+  formId, entry, valueSlider, volumeSlider,
+}) {
+  const form = el('form', 'calculator-premium-quote-form', { id: formId, novalidate: '' });
+
+  // country
+  const countryField = el('div', 'calculator-premium-field');
+  const countryLabel = el('label', 'calculator-premium-field-label', { for: `${formId}-country` });
+  countryLabel.textContent = QUOTE_FORM.country.label;
+  const country = el('select', 'calculator-premium-select', { id: `${formId}-country`, name: 'country' });
+  QUOTE_FORM.country.list.forEach((name) => {
+    const option = el('option', '', { value: name });
+    option.textContent = name;
+    country.append(option);
+  });
+  const outside = el('p', 'calculator-premium-field-note', { 'aria-live': 'polite' });
+  countryField.append(countryLabel, country, outside);
+
+  const solution = buildChoices(`${formId}-solution`, 'radio', QUOTE_FORM.solution);
+  const types = buildChoices(`${formId}-types`, 'checkbox', QUOTE_FORM.types);
+  const freightNote = el('p', 'calculator-premium-field-note', { 'aria-live': 'polite' });
+  types.append(freightNote);
+
+  // carriers + "other provider" text field
+  const carriers = buildChoices(`${formId}-carriers`, 'checkbox', QUOTE_FORM.carriers);
+  const otherToggle = el('button', 'calculator-premium-other-toggle', { type: 'button', 'aria-expanded': 'false' });
+  otherToggle.textContent = QUOTE_FORM.carriers.other;
+  const otherField = el('div', 'calculator-premium-other');
+  otherField.hidden = true;
+  const otherLabel = el('label', 'calculator-premium-field-label', { for: `${formId}-other` });
+  otherLabel.textContent = QUOTE_FORM.carriers.otherLabel;
+  const otherInput = el('input', 'calculator-premium-input', { type: 'text', id: `${formId}-other`, name: 'otherCarrier' });
+  const otherCancel = el('button', 'calculator-premium-other-cancel', { type: 'button' });
+  otherCancel.textContent = QUOTE_FORM.carriers.cancel;
+  otherField.append(otherLabel, otherInput, otherCancel);
+  carriers.append(otherToggle, otherField);
+
+  const coverage = buildChoices(`${formId}-coverage`, 'radio', QUOTE_FORM.coverage);
+
+  form.append(
+    countryField,
+    valueSlider.element,
+    volumeSlider.element,
+    solution,
+    types,
+    carriers,
+    coverage,
+  );
+
+  const submit = el('button', 'button calculator-premium-quote-submit', { type: 'submit', form: formId });
+  submit.textContent = QUOTE_FORM.submit;
+  const status = moveContent(entry, el('p', 'calculator-premium-quote-status', { role: 'status' }));
+  const notice = status.innerHTML.trim() || QUOTE_FORM.notice;
+  status.textContent = '';
+
+  const checked = (name) => [...form.querySelectorAll(`input[name="${formId}-${name}"]:checked`)];
+  const freight = types.querySelector('input[value="freight"]');
+
+  function sync() {
+    const inUs = country.value === QUOTE_FORM.country.us;
+    outside.textContent = inUs ? '' : QUOTE_FORM.country.outside(country.value);
+
+    // freight is only offered with insurance on its own
+    const platform = checked('solution').some((i) => i.value === 'platform');
+    if (platform && freight.checked) {
+      freight.checked = false;
+      freightNote.textContent = QUOTE_FORM.types.freightRemoved;
+    } else if (!platform) {
+      freightNote.textContent = '';
+    }
+    freight.disabled = platform;
+
+    submit.disabled = !(checked('solution').length && checked('types').length && checked('coverage').length);
+    status.textContent = '';
+  }
+
+  function setOther(open) {
+    otherField.hidden = !open;
+    otherToggle.hidden = open;
+    otherToggle.setAttribute('aria-expanded', String(open));
+    if (open) otherInput.focus();
+    else {
+      otherInput.value = '';
+      otherToggle.focus();
+    }
+  }
+
+  form.addEventListener('change', sync);
+  otherToggle.addEventListener('click', () => setOther(true));
+  otherCancel.addEventListener('click', () => setOther(false));
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (submit.disabled) return;
+    status.innerHTML = notice;
+  });
+  sync();
+
+  return { form, submit, status };
+}
+
 /** Side sheet with the monthly premium estimate. */
 function buildQuoteSheet({
   blockId, rows, rates, valueLabel,
@@ -396,7 +590,11 @@ function buildQuoteSheet({
   if (rows['quote-result']) moveInstrumentation(rows['quote-result'].row, result.element);
 
   const body = el('div', 'calculator-premium-sheet-body');
-  body.append(valueSlider.element, volumeSlider.element);
+  const quoteForm = rows['quote-form'] && buildQuoteForm({
+    formId: `${blockId}-quote-form`, entry: rows['quote-form'], valueSlider, volumeSlider,
+  });
+  if (quoteForm) body.append(quoteForm.form);
+  else body.append(valueSlider.element, volumeSlider.element);
 
   const foot = el('div', 'calculator-premium-sheet-foot');
   const summary = el('div', 'calculator-premium-quote');
@@ -409,9 +607,16 @@ function buildQuoteSheet({
     summary.append(note);
   }
   foot.append(summary);
-  if (rows['quote-cta']) {
-    foot.append(moveContent(rows['quote-cta'], el('div', 'calculator-premium-sheet-actions')));
+  if (quoteForm || rows['quote-cta']) {
+    const actions = moveContent(rows['quote-cta'], el('div', 'calculator-premium-sheet-actions'));
+    if (quoteForm) {
+      // next to Continue, the authored links read as secondary actions
+      actions.querySelectorAll('a.button').forEach((a) => a.classList.add('secondary'));
+      actions.prepend(quoteForm.submit);
+    }
+    foot.append(actions);
   }
+  if (quoteForm) foot.append(quoteForm.status);
   foot.append(announcer.element);
 
   panel.append(header, body, foot);
