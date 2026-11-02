@@ -54,7 +54,8 @@
             { "name": "Monthly estimate: shipments a week slider (label + default range)", "value": "quote-volume" },
             { "name": "Monthly estimate: result label", "value": "quote-result" },
             { "name": "Monthly estimate: disclaimer ({low} / {high} = rates)", "value": "quote-disclaimer" },
-            { "name": "Monthly estimate: call to action link", "value": "quote-cta" }
+            { "name": "Monthly estimate: call to action link", "value": "quote-cta" },
+            { "name": "Monthly estimate: PLACEHOLDER quote form (notice shown on Continue)", "value": "quote-form" }
           ]
         },
         {
