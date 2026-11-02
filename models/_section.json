@@ -62,7 +62,13 @@
         "checklist",
         "columns-logos",
         "hero-commerce",
-        "tabs"
+        "tabs",
+        "calculator-premium",
+        "cards-stats",
+        "cards-standout",
+        "calculator-impact",
+        "cards-case-study",
+        "columns-comparison"
       ]
     }
   ]

@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "http://localhost:8811/",
+  "path": "us/en/comp-e",
+  "timestamp": "2026-10-09T15:29:27.081Z",
+  "title": "InsureShield® Shipping Insurance | Protect Every Shipment | UPS Capital",
+  "template": "comp-e",
+  "blocks": [
+    "calculator-premium",
+    "cards-stats",
+    "cards-standout",
+    "checklist",
+    "cards-solutions",
+    "calculator-impact",
+    "cards-case-study",
+    "columns-comparison",
+    "accordion"
+  ]
+}

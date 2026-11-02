@@ -27,13 +27,37 @@
       "checklist",
       "columns-logos",
       "hero-commerce",
-      "tabs"
+      "tabs",
+      "calculator-premium",
+      "cards-stats",
+      "cards-standout",
+      "calculator-impact",
+      "cards-case-study",
+      "columns-comparison"
     ]
   },
   {
     "id": "accordion",
     "components": [
       "accordion-item"
+    ]
+  },
+  {
+    "id": "calculator-impact",
+    "components": [
+      "calculator-impact-row"
+    ]
+  },
+  {
+    "id": "calculator-premium",
+    "components": [
+      "calculator-premium-row"
+    ]
+  },
+  {
+    "id": "cards-case-study",
+    "components": [
+      "cards-case-study-item"
     ]
   },
   {
@@ -61,6 +85,18 @@
     ]
   },
   {
+    "id": "cards-standout",
+    "components": [
+      "cards-standout-item"
+    ]
+  },
+  {
+    "id": "cards-stats",
+    "components": [
+      "cards-stats-item"
+    ]
+  },
+  {
     "id": "cards-story",
     "components": [
       "story-card"
@@ -70,6 +106,12 @@
     "id": "cards",
     "components": [
       "card"
+    ]
+  },
+  {
+    "id": "columns-comparison",
+    "components": [
+      "column"
     ]
   },
   {

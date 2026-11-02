@@ -1,0 +1,83 @@
+/* Block: cards-stats -- borderless stat items (illustration, title,
+   description, optional footnote + CTA revealed on hover).
+   Structural layout only; brand styling comes from the design pass. */
+
+.cards-stats > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+
+.cards-stats > ul > li {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.cards-stats .cards-stats-card-image {
+  line-height: 0;
+}
+
+.cards-stats .cards-stats-card-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+.cards-stats .cards-stats-card-body {
+  padding: 0 24px;
+}
+
+.cards-stats .cards-stats-card-body > :first-child {
+  margin-top: 0;
+}
+
+.cards-stats .cards-stats-card-body h3 {
+  margin-bottom: 16px;
+}
+
+.cards-stats .cards-stats-card-body p {
+  margin: 0 0 12px;
+}
+
+.cards-stats .cards-stats-footnote {
+  font-size: 14px;
+}
+
+.cards-stats .cards-stats-cta a::after {
+  content: " \2192";
+}
+
+/* On pointer devices the footnote and CTA are hidden until the item is
+   hovered or focused; they stay in the a11y tree and remain focusable. */
+@media (hover: hover) {
+  .cards-stats .cards-stats-has-reveal .cards-stats-footnote,
+  .cards-stats .cards-stats-has-reveal .cards-stats-cta {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  .cards-stats .cards-stats-has-reveal:hover .cards-stats-footnote,
+  .cards-stats .cards-stats-has-reveal:hover .cards-stats-cta,
+  .cards-stats .cards-stats-has-reveal:focus-within .cards-stats-footnote,
+  .cards-stats .cards-stats-has-reveal:focus-within .cards-stats-cta {
+    opacity: 1;
+  }
+}
+
+@media (width >= 600px) {
+  .cards-stats > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 24px;
+  }
+}
+
+@media (width >= 900px) {
+  .cards-stats > ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

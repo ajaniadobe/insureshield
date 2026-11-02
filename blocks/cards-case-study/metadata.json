@@ -1,0 +1,40 @@
+{
+  "variantName": "cards-case-study",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "sourceContext": {
+    "originUrl": "http://localhost:8811/",
+    "originPage": "/us/en/comp-e",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "testimonial",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "3 story cards in a connected bordered grid: image area (placeholder when empty), H3 linked title, description, 'Read more' link. One row per card: [image | <h3><a>title</a></h3><p>description</p><p><a>Read more</a></p>]",
+    "rowsPerItem": "[image (empty placeholder) | <h3><a href=story>title</a></h3><p>description</p><p><a href=story>Read more</a></p>]",
+    "items": 3,
+    "buttonCount": 3,
+    "imageCount": 3
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "customer story / case study teaser grids",
+      "connected bordered 3-up article cards with a text-link CTA"
+    ],
+    "notSuitableFor": [
+      "carousel story cards with eyebrow tags (use cards-story)",
+      "icon-led feature cards (use cards-feature)"
+    ]
+  },
+  "options": [],
+  "memberVariantIds": [],
+  "usage": {
+    "pagesUsing": ["/us/en/comp-e"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-09T00:00:00.000Z"
+  }
+}

@@ -123,6 +123,189 @@
           ]
         }
       ]
+    },
+    {
+      "name": "comp-e",
+      "urls": [
+        "http://localhost:8811/"
+      ],
+      "representativeUrl": "http://localhost:8811/",
+      "description": "comp-E prototype homepage (single-page site from MHTML snapshot); target /us/en/comp-e",
+      "blocks": [
+        {
+          "name": "calculator-premium",
+          "instances": [
+            "#hero-section section._estimate_fyex6_5"
+          ]
+        },
+        {
+          "name": "cards-stats",
+          "instances": [
+            "#stats section._group_15dwb_6"
+          ]
+        },
+        {
+          "name": "cards-standout",
+          "instances": [
+            "#standout div._grid_n9mqh_10"
+          ]
+        },
+        {
+          "name": "checklist",
+          "instances": [
+            "#main > section._section_cwncx_50:not([id]) div._split_27cwx_416"
+          ]
+        },
+        {
+          "name": "cards-solutions",
+          "instances": [
+            "#solutions div._grid_n9mqh_10"
+          ]
+        },
+        {
+          "name": "calculator-impact",
+          "instances": [
+            "#calculator div._grid_n9mqh_10"
+          ]
+        },
+        {
+          "name": "cards-case-study",
+          "instances": [
+            "#stories ul._grid_n9mqh_10"
+          ]
+        },
+        {
+          "name": "columns-comparison",
+          "instances": [
+            "#difference ul._grid_n9mqh_10"
+          ]
+        },
+        {
+          "name": "accordion",
+          "instances": [
+            "#faq div._faq_27cwx_203"
+          ]
+        }
+      ],
+      "urlPattern": "/",
+      "sections": [
+        {
+          "id": "hero",
+          "name": "Hero",
+          "selector": [
+            "#hero-section"
+          ],
+          "style": "split",
+          "blocks": [
+            "calculator-premium"
+          ],
+          "defaultContent": [
+            "#hero-section div._head_19lfv_53"
+          ]
+        },
+        {
+          "id": "stats",
+          "name": "Stats - Delivering confidence",
+          "selector": [
+            "#stats"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-stats"
+          ],
+          "defaultContent": [
+            "#stats div._intro_1q9ch_5"
+          ]
+        },
+        {
+          "id": "standout",
+          "name": "What makes us stand out",
+          "selector": [
+            "#standout"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-standout"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "benefits",
+          "name": "Benefits",
+          "selector": [
+            "#main > section._section_cwncx_50:not([id])"
+          ],
+          "style": null,
+          "blocks": [
+            "checklist"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "solutions",
+          "name": "Our solutions",
+          "selector": [
+            "#solutions"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-solutions"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "calculator",
+          "name": "Estimate your business impact",
+          "selector": [
+            "#calculator"
+          ],
+          "style": null,
+          "blocks": [
+            "calculator-impact"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "stories",
+          "name": "Read more stories",
+          "selector": [
+            "#stories"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-case-study"
+          ],
+          "defaultContent": [
+            "#stories div._intro_1q9ch_5"
+          ]
+        },
+        {
+          "id": "difference",
+          "name": "What's covered? comparison",
+          "selector": [
+            "#difference"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-comparison"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "faq",
+          "name": "FAQ",
+          "selector": [
+            "#faq"
+          ],
+          "style": "split",
+          "blocks": [
+            "accordion"
+          ],
+          "defaultContent": [
+            "#faq div._intro_1q9ch_5"
+          ]
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,85 @@
+{
+  "definitions": [
+    {
+      "title": "Calculator Premium",
+      "id": "calculator-premium",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Calculator Premium",
+              "filter": "calculator-premium"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Calculator Premium Row",
+      "id": "calculator-premium-row",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Calculator Row",
+              "model": "calculator-premium-row",
+              "type": "value"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "calculator-premium-row",
+      "fields": [
+        {
+          "component": "select",
+          "name": "type",
+          "value": "value",
+          "label": "Row type",
+          "valueType": "string",
+          "options": [
+            { "name": "Card: heading", "value": "heading" },
+            { "name": "Card: package value slider (label + default range)", "value": "value" },
+            { "name": "Card: result label", "value": "result" },
+            { "name": "Card: button label (opens monthly estimate)", "value": "cta" },
+            { "name": "Card: disclaimer", "value": "disclaimer" },
+            { "name": "Rates per $100 of value (low – high)", "value": "rates" },
+            { "name": "Monthly estimate: heading", "value": "quote-heading" },
+            { "name": "Monthly estimate: package value slider label", "value": "quote-value" },
+            { "name": "Monthly estimate: shipments a week slider (label + default range)", "value": "quote-volume" },
+            { "name": "Monthly estimate: result label", "value": "quote-result" },
+            { "name": "Monthly estimate: disclaimer ({low} / {high} = rates)", "value": "quote-disclaimer" },
+            { "name": "Monthly estimate: call to action link", "value": "quote-cta" }
+          ]
+        },
+        {
+          "component": "richtext",
+          "name": "label",
+          "value": "",
+          "label": "Label / content",
+          "valueType": "string"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "value",
+          "value": "",
+          "label": "Default range or rates (value, quote-volume and rates rows)"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "calculator-premium",
+      "components": [
+        "calculator-premium-row"
+      ]
+    }
+  ]
+}

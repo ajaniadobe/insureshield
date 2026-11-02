@@ -1,0 +1,70 @@
+{
+  "definitions": [
+    {
+      "title": "Cards Case Study",
+      "id": "cards-case-study",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Cards Case Study",
+              "filter": "cards-case-study"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Case Study Card",
+      "id": "cards-case-study-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Case Study Card",
+              "model": "cards-case-study-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "cards-case-study-item",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "imageAlt",
+          "value": "",
+          "label": "Image alt text"
+        },
+        {
+          "component": "richtext",
+          "name": "text",
+          "value": "",
+          "label": "Text",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "cards-case-study",
+      "components": [
+        "cards-case-study-item"
+      ]
+    }
+  ]
+}
