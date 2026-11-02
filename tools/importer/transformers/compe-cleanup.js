@@ -68,7 +68,7 @@ const SECTION_SVG_EXPORTS = [
   {
     section: '#stats',
     files: [
-      'section-header-art-1c5de68bf2a9.svg',
+      'section-header-art-1c5de68bf2a9.png',
       'section-header-art-41f080a125d0.svg',
       'section-header-art-b66fdb06d8ee.svg',
     ],

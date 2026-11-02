@@ -35,7 +35,7 @@ export default function parse(element, { document }) {
   // Image alts from the authoring analysis (source <img> alt is empty — the figure
   // is baked into the artwork). Fallback: the item title without the footnote marker.
   const ALT_BY_FILE = {
-    'section-header-art-1c5de68bf2a9.svg': '62M packages insured',
+    'section-header-art-1c5de68bf2a9.png': '62M packages insured',
     'section-header-art-41f080a125d0.svg': '$132M claims paid',
     'section-header-art-b66fdb06d8ee.svg': '97% within 5 days',
   };
